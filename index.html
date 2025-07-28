@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avura Cares</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+<!-- Navbar -->
+<header class="bg-purple-700 text-white px-6 py-4 relative z-50" data-aos="fade-down">
+    <div class="flex justify-between items-center">
+        <img src="images/avura-logo.ico" alt="Avura Logo" class="h-20" />
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex space-x-6 font-medium">
+            <a href="#" class="hover:text-amber-400">Home</a>
+            <a href="#" class="hover:text-amber-400">Services</a>
+            <a href="#" class="hover:text-amber-400">About</a>
+            <a href="#" class="hover:text-amber-400">Contact</a>
+        </nav>
+
+        <!-- Hamburger Button -->
+        <button id="menu-toggle" class="md:hidden focus:outline-none">
+            <svg id="hamburger-icon" class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+                <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="close-icon" class="w-7 h-7 fill-current hidden" viewBox="0 0 24 24">
+                <path d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
+        <nav class="flex flex-col gap-4 mt-4 font-medium">
+            <a href="#" class="hover:text-amber-400">Home</a>
+            <a href="#" class="hover:text-amber-400">Services</a>
+            <a href="#" class="hover:text-amber-400">About</a>
+            <a href="#" class="hover:text-amber-400">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="flex flex-col md:flex-row items-center justify-between px-6 py-12 bg-amber-50" data-aos="zoom-in">
+    <div class="max-w-xl">
+        <h1 class="text-3xl md:text-5xl font-bold text-purple-700 mb-4" data-aos="fade-up">
+            No wait make body knock ground — Prevention still better pass cure.
+        </h1>
+        <p class="text-lg mb-6" data-aos="fade-up" data-aos-delay="200">
+            Avura Cares connects you to preventive healthcare wherever you are.
+        </p>
+        <div class="flex md:justify-start justify-center">
+            <button class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-full font-semibold" data-aos="fade-up" data-aos-delay="400">
+                Explore Our Services
+            </button>
+        </div>
+    </div>
+    <div class="mt-10 md:mt-0 md:ml-16 w-full max-w-2xl" data-aos="fade-left">
+        <img src="images/heroBanner.png" alt="Hero Banner Image" class="w-full h-auto object-cover" />
+    </div>
+</section>
+
+<!-- Company Description -->
+<section class="text-center px-6 py-10 max-w-4xl mx-auto" data-aos="fade-in">
+    <p class="text-lg text-gray-700">
+        Avura Cares is a preventive healthcare-tech company providing preventive, affordable and accessible care across Nigeria. From telemedicine and home care to personalized insurance plans and wellness support, we bring healthcare to your doorstep.
+    </p>
+</section>
+
+<!-- Services List -->
+<section class="px-6 py-10 text-center" data-aos="zoom-in-up">
+    <h2 class="text-3xl font-bold text-purple-700 mb-4">Our Services</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 text-gray-700">
+
+        <!-- Outpatient Clinics -->
+        <div class="flex flex-col items-center space-y-2">
+            <div class="w-16 h-16 flex items-center justify-center bg-purple-100 text-purple-700 rounded-full">
+                <i class="fas fa-hospital text-purple-700 text-2xl" aria-hidden="true"></i>
+            </div>
+            <p>Outpatient Clinics</p>
+        </div>
+
+        <!-- Telemedicine -->
+        <div class="flex flex-col items-center space-y-2">
+            <div class="w-16 h-16 flex items-center justify-center bg-purple-100 text-purple-700 rounded-full">
+                <i class="fas fa-video text-purple-700 text-2xl" aria-hidden="true"></i>
+            </div>
+            <p>Telemedicine</p>
+        </div>
+
+        <!-- Domiciliary Care -->
+        <div class="flex flex-col items-center space-y-2">
+            <div class="w-16 h-16 flex items-center justify-center bg-purple-100 text-purple-700 rounded-full">
+                <i class="fas fa-house-medical text-purple-700 text-2xl" aria-hidden="true"></i>
+            </div>
+            <p>Domiciliary Care</p>
+        </div>
+
+        <!-- Health Insurance -->
+        <div class="flex flex-col items-center space-y-2">
+            <div class="w-16 h-16 flex items-center justify-center bg-purple-100 text-purple-700 rounded-full">
+                <i class="fas fa-shield-heart text-purple-700 text-2xl" aria-hidden="true"></i>
+            </div>
+            <p>Health Insurance</p>
+        </div>
+
+        <!-- Nutritional Profiling -->
+        <div class="flex flex-col items-center space-y-2">
+            <div class="w-16 h-16 flex items-center justify-center bg-purple-100 text-purple-700 rounded-full">
+                <i class="fas fa-utensils text-purple-700 text-2xl" aria-hidden="true"></i>
+            </div>
+            <p>Nutritional Profiling</p>
+        </div>
+
+        <!-- Ambulance Support -->
+        <div class="flex flex-col items-center space-y-2">
+            <div class="w-16 h-16 flex items-center justify-center bg-purple-100 text-purple-700 rounded-full">
+                <i class="fas fa-ambulance text-purple-700 text-2xl" aria-hidden="true"></i>
+            </div>
+            <p>Ambulance Support</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Our Story Section -->
+<section class="py-16 px-6 bg-white">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+        <div data-aos="fade-right">
+            <h2 class="text-3xl font-bold text-purple-700 mb-4">Our Story</h2>
+            <p class="text-gray-700">
+                Avura Cares was founded with a simple goal — to change the way nigerian experience healthcare, Health for all.
+                We started with a bold belief: healthcare should be preventive, not reactive; personal, not transactional.
+            </p>
+            <p>
+                Born from frustration with hard-to-access hospitals, expensive treatments, and a lack of trust, we built a system where care starts with listening.
+            </p>
+            <p>
+                Whether it's a phone call, a home visit or a personalized care plan — we meet you where you are. Avura Cares isn't just a name. it's a promise
+            </p>
+        </div>
+        <div data-aos="fade-left">
+            <img src="images/storysection.jpg" alt="Our Story" class="rounded-lg shadow-lg w-full">
+        </div>
+    </div>
+</section>
+
+<!-- Vision / Mission / Values -->
+<section class="px-6 py-12">
+    <div class="grid gap-10 md:grid-cols-3 text-center">
+        <div data-aos="flip-left">
+            <h3 class="text-xl font-bold text-purple-700 mb-2">Vision</h3>
+            <p>To make healthcare accessible, preventive and emphatic for every Nigerian.</p>
+        </div>
+        <div data-aos="flip-up">
+            <h3 class="text-xl font-bold text-purple-700 mb-2">Mission</h3>
+            <p>Delivering quality care at every stage of life — early, easy and everywhere.</p>
+        </div>
+        <div data-aos="flip-right">
+            <h3 class="text-xl font-bold text-purple-700 mb-2">Values</h3>
+            <p>Empathy, Innovation, Accessibility, Community, and Prevention.</p>
+        </div>
+    </div>
+</section>
+
+<section class="px-4 sm:px-6 lg:px-12 py-12 bg-gray-50">
+    <h2 class="text-3xl font-bold text-center text-purple-700 mb-12" data-aos="fade-up">What We Offer</h2>
+
+    <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center">
+
+        <!-- Telemedicine -->
+        <div class="bg-white p-4 shadow rounded-lg w-full max-w-xs" data-aos="zoom-in">
+            <div class="w-16 h-16 flex items-center justify-center bg-white rounded-full mb-3">
+                <i class="fas fa-video text-purple-700 text-2xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-purple-700 mb-2">Telemedicine</h3>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                <li>24/7 toll free consultation</li>
+                <li>Remote Monitor</li>
+                <li>Mobile-based healthcare access</li>
+            </ul>
+        </div>
+
+        <!-- Personal Home-Based -->
+        <div class="bg-white p-4 shadow rounded-lg w-full max-w-xs" data-aos="zoom-in">
+            <div class="w-16 h-16 flex items-center justify-center bg-white rounded-full mb-3">
+                <i class="fas fa-house-medical text-purple-700 text-2xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-purple-700 mb-2">Personal Home-Based</h3>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                <li>Personal home-based</li>
+                <li>Medication support & supervision</li>
+                <li>Companionship & emphatic</li>
+                <li>Health monitoring</li>
+            </ul>
+        </div>
+
+        <!-- Health Insurance -->
+        <div class="bg-white p-4 shadow rounded-lg w-full max-w-xs" data-aos="zoom-in">
+            <div class="w-16 h-16 flex items-center justify-center bg-white rounded-full mb-3">
+                <i class="fas fa-shield-heart text-purple-700 text-2xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-purple-700 mb-2">Health Insurance</h3>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                <li>Tailored plans for individuals & families</li>
+                <li>Coverage for consultation & pharmacy</li>
+                <li>Peace of mind when it matters.</li>
+            </ul>
+        </div>
+
+        <!-- Wellness & Preventive Care -->
+        <div class="bg-white p-4 shadow rounded-lg w-full max-w-xs" data-aos="zoom-in">
+            <div class="w-16 h-16 flex items-center justify-center bg-white rounded-full mb-3">
+                <i class="fas fa-heart-pulse text-purple-700 text-2xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-purple-700 mb-2">Wellness & Preventive Care</h3>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                <li>Nutritional profiling and diet support</li>
+                <li>Mental health services</li>
+                <li>Routine health checks</li>
+            </ul>
+        </div>
+
+        <!-- Ambulance Services -->
+        <div class="bg-white p-4 shadow rounded-lg w-full max-w-xs" data-aos="zoom-in">
+            <div class="w-16 h-16 flex items-center justify-center bg-white rounded-full mb-3">
+                <i class="fas fa-ambulance text-purple-700 text-2xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-purple-700 mb-2">Ambulance Services</h3>
+            <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                <li>Emergency & non-emergency transport</li>
+                <li>Trained medical professionals on board</li>
+                <li>Timely trusted response</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Why Avura -->
+<section class="px-6 py-12 text-center bg-amber-50">
+    <h2 class="text-2xl md:text-3xl font-bold text-purple-700 mb-6" data-aos="fade-down">
+        <i class="fas fa-star text-purple-700 mr-2" aria-hidden="true"></i>What sets us apart:
+    </h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-5xl mx-auto text-sm">
+        <div data-aos="zoom-in" class="flex flex-col items-center">
+            <div class="mb-2">
+                <i class="fas fa-shield text-purple-700 text-2xl" aria-hidden="true"></i>
+            </div>
+            <p>Prevention-first philosophy</p>
+        </div>
+        <div data-aos="zoom-in" class="flex flex-col items-center">
+            <div class="mb-2">
+                <i class="fas fa-house-laptop text-purple-700 text-2xl" aria-hidden="true"></i>
+            </div>
+            <p>Home-based & digital delivery</p>
+        </div>
+        <div data-aos="zoom-in" class="flex flex-col items-center">
+            <div class="mb-2">
+                <i class="fas fa-wallet text-purple-700 text-2xl" aria-hidden="true"></i>
+            </div>
+            <p>Affordable, personalized insurance</p>
+        </div>
+        <div data-aos="zoom-in" class="flex flex-col items-center">
+            <div class="mb-2">
+                <i class="fas fa-map-location text-purple-700 text-2xl" aria-hidden="true"></i>
+            </div>
+            <p>Nigerian-centered care</p>
+        </div>
+        <div data-aos="zoom-in" class="flex flex-col items-center">
+            <div class="mb-2">
+                <i class="fas fa-hands-helping text-purple-700 text-2xl" aria-hidden="true"></i>
+            </div>
+            <p>Empathy in action</p>
+        </div>
+    </div>
+</section>
+
+<!-- Insurance Plans -->
+<section class="px-6 py-12 bg-gray-100">
+    <h2 class="text-2xl md:text-3xl font-bold text-center text-purple-700 mb-8" data-aos="fade-up">
+        <i class="fas fa-shield-alt text-purple-700 mr-2" aria-hidden="true"></i>Flexible Insurance Plans That Fit You
+    </h2>
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Avura SafeBuddy -->
+        <div class="bg-white p-6 rounded-lg shadow" data-aos="flip-left">
+            <div class="mb-4 w-32 h-32 flex items-center justify-center bg-gray-200 rounded-full mx-auto">
+                <i class="fas fa-user-shield text-purple-700 text-4xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-xl font-bold text-purple-700 mb-2">
+                <i class="fas fa-shield-alt text-purple-700 mr-2" aria-hidden="true"></i>Avura SafeBuddy
+            </h3>
+            <p class="mb-3">Entry-level care for individuals</p>
+            <ul class="list-none text-gray-700 mb-4">
+                <li><div class="w-6 h-6 flex items-center justify-center bg-gray-200 rounded-full mr-2"><i class="fas fa-wallet text-purple-700" aria-hidden="true"></i></div>Affordable protection</li>
+                <li><div class="w-6 h-6 flex items-center justify-center bg-gray-200 rounded-full mr-2"><i class="fas fa-graduation-cap text-purple-700" aria-hidden="true"></i></div>Great for students</li>
+                <li><div class="w-6 h-6 flex items-center justify-center bg-gray-200 rounded-full mr-2"><i class="fas fa-briefcase text-purple-700" aria-hidden="true"></i></div>Early career professionals</li>
+                <li><div class="w-6 h-6 flex items-center justify-center bg-gray-200 rounded-full mr-2"><i class="fas fa-stethoscope text-purple-700" aria-hidden="true"></i></div>Basic consultation coverage</li>
+            </ul>
+            <button class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-medium">
+                <i class="fas fa-check mr-2" aria-hidden="true"></i>Choose Plan
+            </button>
+        </div>
+        <!-- Avura SafePal -->
+        <div class="bg-white p-6 rounded-lg shadow" data-aos="flip-right">
+            <div class="mb-4 w-32 h-32 flex items-center justify-center bg-gray-200 rounded-full mx-auto">
+                <i class="fas fa-users text-purple-700 text-4xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-xl font-bold text-purple-700 mb-2">
+                <i class="fas fa-shield-heart text-purple-700 mr-2" aria-hidden="true"></i>Avura SafePal
+            </h3>
+            <p class="mb-3">More coverage for growing needs</p>
+            <ul class="list-none text-gray-700 mb-4">
+                <li><div class="w-6 h-6 flex items-center justify-center bg-gray-200 rounded-full mr-2"><i class="fas fa-users text-purple-700" aria-hidden="true"></i></div>Ideal for small family and teams</li>
+                <li><div class="w-6 h-6 flex items-center justify-center bg-gray-200 rounded-full mr-2"><i class="fas fa-hospital text-purple-700" aria-hidden="true"></i></div>Includes outpatient coverage</li>
+                <li><div class="w-6 h-6 flex items-center justify-center bg-gray-200 rounded-full mr-2"><i class="fas fa-baby text-purple-700" aria-hidden="true"></i></div>Maternity support</li>
+                <li><div class="w-6 h-6 flex items-center justify-center bg-gray-200 rounded-full mr-2"><i class="fas fa-heartbeat text-purple-700" aria-hidden="true"></i></div>Wellness support included</li>
+            </ul>
+            <button class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-medium">
+                <i class="fas fa-check mr-2" aria-hidden="true"></i>Choose Plan
+            </button>
+        </div>
+    </div>
+    <div class="text-center mt-8" data-aos="fade-up">
+        <button class="text-purple-700 underline font-semibold hover:text-purple-900">
+            <i class="fas fa-download mr-2" aria-hidden="true"></i>Download Plan Guide
+        </button>
+    </div>
+</section>
+<section class="bg-gray-50 py-16 px-6 md:px-20">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-purple-700 mb-10">Frequently Asked Questions</h2>
+
+        <div class="space-y-4" x-data="{ selected: null }">
+            <!-- FAQ Item 1 -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <button
+                        @click="selected !== 1 ? selected = 1 : selected = null"
+                        class="w-full flex justify-between items-center px-6 py-4 text-left text-lg font-semibold text-purple-700 hover:bg-purple-100"
+                >
+                    <span>How do I join Avura Cares?</span>
+                    <svg x-show="selected !== 1" class="w-6 h-6 transform rotate-0" fill="none" stroke="currentColor" stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                    <svg x-show="selected === 1" class="w-6 h-6 transform rotate-180" fill="none" stroke="currentColor" stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div x-show="selected === 1" x-collapse class="px-6 pb-4 text-gray-700">
+                    Simply contact us through our website, phone, or WhatsApp to get started with your personalized healthcare plan.
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <button
+                        @click="selected !== 2 ? selected = 2 : selected = null"
+                        class="w-full flex justify-between items-center px-6 py-4 text-left text-lg font-semibold text-purple-700 hover:bg-purple-100"
+                >
+                    <span>What’s included in my insurance plan?</span>
+                    <svg x-show="selected !== 2" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                    <svg x-show="selected === 2" class="w-6 h-6 transform rotate-180" fill="none" stroke="currentColor" stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div x-show="selected === 2" x-collapse class="px-6 pb-4 text-gray-700">
+                    Coverage varies by plan but includes consultations, pharmacy, and wellness services. Download our plan guide for full details.
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <button
+                        @click="selected !== 3 ? selected = 3 : selected = null"
+                        class="w-full flex justify-between items-center px-6 py-4 text-left text-lg font-semibold text-purple-700 hover:bg-purple-100"
+                >
+                    <span>Can I get a doctor to visit me at home?</span>
+                    <svg x-show="selected !== 3" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                    <svg x-show="selected === 3" class="w-6 h-6 transform rotate-180" fill="none" stroke="currentColor" stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div x-show="selected === 3" x-collapse class="px-6 pb-4 text-gray-700">
+                    Yes! Our domiciliary care service brings qualified healthcare professionals directly to your home.
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <button
+                        @click="selected !== 4 ? selected = 4 : selected = null"
+                        class="w-full flex justify-between items-center px-6 py-4 text-left text-lg font-semibold text-purple-700 hover:bg-purple-100"
+                >
+                    <span>Where is Avura available?</span>
+                    <svg x-show="selected !== 4" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                    <svg x-show="selected === 4" class="w-6 h-6 transform rotate-180" fill="none" stroke="currentColor" stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div x-show="selected === 4" x-collapse class="px-6 pb-4 text-gray-700">
+                    We currently serve across Nigeria with plans to expand our coverage areas continuously.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="bg-purple-900 text-white py-10 px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Logo & About -->
+        <div>
+            <h2 class="text-2xl font-bold text-amber-400 mb-2">Avura</h2>
+            <p class="text-sm text-gray-300">
+                Personalized healthcare plans that work for you — anytime, anywhere.
+            </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2 text-gray-300 text-sm">
+                <li><a href="#" class="hover:text-amber-400">Home</a></li>
+                <li><a href="#" class="hover:text-amber-400">Services</a></li>
+                <li><a href="#" class="hover:text-amber-400">About</a></li>
+                <li><a href="#" class="hover:text-amber-400">FAQs</a></li>
+                <li><a href="#" class="hover:text-amber-400">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+            <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+            <ul class="space-y-2 text-gray-300 text-sm">
+                <li>📞 +234 800 000 0000</li>
+                <li>📧 support@avura.com</li>
+                <li>📍 Lagos, Nigeria</li>
+            </ul>
+
+        </div>
+
+        <!-- Socials -->
+        <div>
+            <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-amber-400" aria-label="Instagram">📸</a>
+                <a href="#" class="hover:text-amber-400" aria-label="Facebook">📘</a>
+                <a href="#" class="hover:text-amber-400" aria-label="Twitter">🐦</a>
+                <a href="#" class="hover:text-amber-400" aria-label="WhatsApp">💬</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bottom Bar -->
+    <div class="mt-8 border-t border-purple-700 pt-4 text-center text-sm text-gray-400">
+        &copy; 2025 Avura. All rights reserved.
+    </div>
+</footer>
+
+
+<!-- Add this if Alpine.js isn’t already included -->
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+<!-- AOS JS + Mobile Nav Toggle -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 1000, once: true });
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    let isOpen = false;
+
+    menuToggle.addEventListener('click', () => {
+        isOpen = !isOpen;
+        mobileMenu.style.maxHeight = isOpen ? mobileMenu.scrollHeight + 'px' : '0';
+        hamburgerIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+    });
+</script>
+
+</body>
+</html>

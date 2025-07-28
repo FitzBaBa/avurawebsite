@@ -1,0 +1,19 @@
+.body{
+    background: lightgray;
+}
+
+.nav {
+    background: white;
+    justify-items: end;
+    margin: 5px;
+}
+
+.nav-main {
+
+}
+
+.header {
+    background: purple;
+    font-family: "Comic Sans MS";
+    justify-content: space-evenly;
+}
