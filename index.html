@@ -7,23 +7,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 </head>
 <body class="bg-white text-gray-800 font-sans">
-
-<header class="bg-purple-700 text-white px-6 py-4 relative z-50" data-aos="fade-down">
+<header class="bg-blue-900 text-white px-4 sm:px-6 py-4 relative z-50" data-aos="fade-down">
     <div class="flex justify-between items-center">
-        <img src="images/avura-logo.png" alt="Avura Logo" class="w-40 h-20 md:h-32 transition-all duration-300" />
-
-        <!-- Desktop Nav -->
+        <img src="images/avura-logo.png" alt="Avura Logo" class="w-24 h-12 md:w-32 md:h-32 mr-4 transition-all duration-300" />
         <nav class="hidden md:flex space-x-6 font-medium">
             <a href="#home" class="hover:text-amber-400">Home</a>
             <a href="#services" class="hover:text-amber-400">Services</a>
             <a href="#about" class="hover:text-amber-400">About</a>
             <a href="#contact" class="hover:text-amber-400">Contact</a>
         </nav>
-
-        <!-- Hamburger Button -->
         <button id="menu-toggle" class="md:hidden focus:outline-none text-white" aria-label="Toggle menu">
             <svg id="hamburger-icon" class="w-7 h-7" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path d="M4 6h16M4 12h16M4 18h16" />
@@ -33,10 +27,8 @@
             </svg>
         </button>
     </div>
-
-    <!-- Mobile Dropdown Menu -->
-    <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0 transition-all duration-300 ease-in-out bg-purple-600">
-        <nav class="flex flex-col gap-4 p-4 font-medium">
+    <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0 transition-all duration-300 ease-in-out bg-blue-800">
+        <nav class="flex flex-col gap-2 p-4 font-medium">
             <a href="#home" class="hover:text-amber-400">Home</a>
             <a href="#services" class="hover:text-amber-400">Services</a>
             <a href="#about" class="hover:text-amber-400">About</a>
@@ -45,155 +37,132 @@
     </div>
 </header>
 
-<!-- Hero Section -->
-<section id="home" class="flex flex-col md:flex-row items-center justify-between px-6 py-12 bg-amber-50" data-aos="zoom-in">
+<section id="home" class="flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 py-12 bg-amber-50" data-aos="zoom-in">
     <div class="max-w-xl">
-        <h1 class="text-3xl md:text-5xl font-bold text-purple-700 mb-4" data-aos="fade-up">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-800 mb-4" data-aos="fade-up">
             No wait make body knock ground — Prevention still better pass cure.
         </h1>
-        <p class="text-lg mb-6" data-aos="fade-up" data-aos-delay="200">
+        <p class="text-base sm:text-lg mb-6" data-aos="fade-up" data-aos-delay="200">
             Avura Cares connects you to preventive healthcare wherever you are.
         </p>
-        <div class="flex md:justify-start justify-center">
+        <div class="flex justify-center md:justify-start">
             <a href="#services">
-                <button class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-full font-semibold" data-aos="fade-up" data-aos-delay="400">
+                <button class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-full font-semibold" data-aos="fade-up" data-aos-delay="400">
                     Explore Our Services
                 </button>
             </a>
         </div>
     </div>
-    <div class="mt-10 md:mt-0 md:ml-16 w-full max-w-2xl" data-aos="fade-left">
+    <div class="mt-6 md:mt-0 md:ml-6 w-full max-w-2xl" data-aos="fade-left">
         <img src="images/heroBanner.png" alt="Hero Banner Image" class="w-full h-auto object-cover" />
     </div>
 </section>
 
-<!-- Company Description -->
-<section class="text-center px-6 py-10 max-w-4xl mx-auto" data-aos="fade-in">
-    <p class="text-lg text-gray-700">
+<section class="text-center px-4 sm:px-6 py-10 max-w-4xl mx-auto" data-aos="fade-in">
+    <p class="text-base sm:text-lg text-gray-700">
         Avura Cares is a preventive healthcare-tech company providing preventive, affordable and accessible care across Nigeria. From telemedicine and home care to personalized insurance plans and wellness support, we bring healthcare to your doorstep.
     </p>
 </section>
 
-<!-- Services List -->
-<section class="px-6 py-10 text-center" data-aos="zoom-in-up">
-    <h2 class="text-3xl font-bold text-purple-700 mb-4">Our Services</h2>
-    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 text-gray-700">
-
-        <!-- Outpatient Clinics -->
+<section class="px-4 sm:px-6 py-10 text-center" data-aos="zoom-in-up">
+    <h2 class="text-2xl sm:text-3xl font-bold text-blue-800 mb-4">Our Services</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-gray-700">
         <div class="flex flex-col items-center space-y-2">
-            <div class="w-16 h-16 flex items-center justify-center bg-purple-100 text-purple-700 rounded-full">
-                <i class="fas fa-hospital text-purple-700 text-2xl" aria-hidden="true"></i>
+            <div class="w-16 h-16 flex items-center justify-center bg-green-50 text-green-800 rounded-full">
+                <i class="fas fa-hospital text-green-700 text-2xl" aria-hidden="true"></i>
             </div>
             <p>Outpatient Clinics</p>
         </div>
-
-        <!-- Telemedicine -->
         <div class="flex flex-col items-center space-y-2">
-            <div class="w-16 h-16 flex items-center justify-center bg-purple-100 text-purple-700 rounded-full">
-                <i class="fas fa-video text-purple-700 text-2xl" aria-hidden="true"></i>
+            <div class="w-16 h-16 flex items-center justify-center bg-blue-100 text-purple-700 rounded-full">
+                <i class="fas fa-video text-blue-700 text-2xl" aria-hidden="true"></i>
             </div>
             <p>Telemedicine</p>
         </div>
-
-        <!-- Domiciliary Care -->
         <div class="flex flex-col items-center space-y-2">
             <div class="w-16 h-16 flex items-center justify-center bg-purple-100 text-purple-700 rounded-full">
                 <i class="fas fa-house-medical text-purple-700 text-2xl" aria-hidden="true"></i>
             </div>
             <p>Domiciliary Care</p>
         </div>
-
-        <!-- Health Insurance -->
         <div class="flex flex-col items-center space-y-2">
-            <div class="w-16 h-16 flex items-center justify-center bg-purple-100 text-purple-700 rounded-full">
-                <i class="fas fa-shield-heart text-purple-700 text-2xl" aria-hidden="true"></i>
+            <div class="w-16 h-16 flex items-center justify-center bg-yellow-100 text-purple-700 rounded-full">
+                <i class="fas fa-shield-heart text-yellow-600 text-2xl" aria-hidden="true"></i>
             </div>
             <p>Health Insurance</p>
         </div>
-
-        <!-- Nutritional Profiling -->
         <div class="flex flex-col items-center space-y-2">
-            <div class="w-16 h-16 flex items-center justify-center bg-purple-100 text-purple-700 rounded-full">
-                <i class="fas fa-utensils text-purple-700 text-2xl" aria-hidden="true"></i>
+            <div class="w-16 h-16 flex items-center justify-center bg-gray-200 text-purple-700 rounded-full">
+                <i class="fas fa-utensils text-gray-700 text-2xl" aria-hidden="true"></i>
             </div>
             <p>Nutritional Profiling</p>
         </div>
-
-        <!-- Ambulance Support -->
         <div class="flex flex-col items-center space-y-2">
-            <div class="w-16 h-16 flex items-center justify-center bg-purple-100 text-purple-700 rounded-full">
-                <i class="fas fa-ambulance text-purple-700 text-2xl" aria-hidden="true"></i>
+            <div class="w-16 h-16 flex items-center justify-center bg-red-100 text-purple-700 rounded-full">
+                <i class="fas fa-ambulance text-red-700 text-2xl" aria-hidden="true"></i>
             </div>
             <p>Ambulance Support</p>
         </div>
-
     </div>
 </section>
 
-<!-- Our Story Section -->
-<section id="about" class="py-16 px-6 bg-white">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+<section id="about" class="py-12 px-4 sm:px-6 bg-white">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-6 items-center">
         <div data-aos="fade-right">
-            <h2 class="text-3xl font-bold text-purple-700 mb-4">Our Story</h2>
+            <h2 class="text-2xl sm:text-3xl font-bold text-blue-800 mb-4">Our Story</h2>
             <p class="text-gray-700">
-                Avura Cares was founded with a simple goal — to change the way nigerian experience healthcare, Health for all.
+                Avura Cares was founded with a simple goal — to change the way Nigerian experience healthcare, Health for all.
                 We started with a bold belief: healthcare should be preventive, not reactive; personal, not transactional.
             </p>
-            <p>
+            <p class="mt-2 text-gray-700">
                 Born from frustration with hard-to-access hospitals, expensive treatments, and a lack of trust, we built a system where care starts with listening.
             </p>
-            <p>
-                Whether it's a phone call, a home visit or a personalized care plan — we meet you where you are. Avura Cares isn't just a name. it's a promise
+            <p class="mt-2 text-gray-700">
+                Whether it's a phone call, a home visit or a personalized care plan — we meet you where you are. Avura Cares isn't just a name. it's a promise.
             </p>
         </div>
         <div data-aos="fade-left">
-            <img src="images/storysection.jpg" alt="Our Story" class="rounded-lg shadow-lg w-full">
+            <img src="images/storysection.jpg" alt="Our Story" class="rounded-lg shadow-lg w-full h-auto" />
         </div>
     </div>
 </section>
 
-<!-- Vision / Mission / Values -->
-<section class="px-6 py-12">
-    <div class="grid gap-10 md:grid-cols-3 text-center">
+<section class="px-4 sm:px-6 py-12">
+    <div class="grid gap-6 md:grid-cols-3 text-center">
         <div data-aos="flip-left">
-            <h3 class="text-xl font-bold text-purple-700 mb-2">Vision</h3>
+            <h3 class="text-lg sm:text-xl font-bold text-blue-800 mb-2">Vision</h3>
             <p>To make healthcare accessible, preventive and emphatic for every Nigerian.</p>
         </div>
         <div data-aos="flip-up">
-            <h3 class="text-xl font-bold text-purple-700 mb-2">Mission</h3>
+            <h3 class="text-lg sm:text-xl font-bold text-blue-800 mb-2">Mission</h3>
             <p>Delivering quality care at every stage of life — early, easy and everywhere.</p>
         </div>
         <div data-aos="flip-right">
-            <h3 class="text-xl font-bold text-purple-700 mb-2">Values</h3>
+            <h3 class="text-lg sm:text-xl font-bold text-blue-800 mb-2">Values</h3>
             <p>Empathy, Innovation, Accessibility, Community, and Prevention.</p>
         </div>
     </div>
 </section>
 
 <section id="services" class="px-4 sm:px-6 lg:px-12 py-12 bg-gray-50">
-    <h2 class="text-3xl font-bold text-center text-purple-700 mb-12" data-aos="fade-up">What We Offer</h2>
-
-    <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center">
-
-        <!-- Telemedicine -->
+    <h2 class="text-2xl sm:text-3xl font-bold text-center text-blue-800 mb-12" data-aos="fade-up">What We Offer</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="bg-white p-4 shadow rounded-lg w-full max-w-xs" data-aos="zoom-in">
             <div class="w-16 h-16 flex items-center justify-center bg-white rounded-full mb-3">
-                <i class="fas fa-video text-purple-700 text-2xl" aria-hidden="true"></i>
+                <i class="fas fa-video text-blue-800 text-2xl" aria-hidden="true"></i>
             </div>
-            <h3 class="text-lg font-semibold text-purple-700 mb-2">Telemedicine</h3>
+            <h3 class="text-lg font-semibold text-blue-800 mb-2">Telemedicine</h3>
             <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
                 <li>Toll free consultation</li>
                 <li>Remote Monitor</li>
                 <li>Mobile-based healthcare access</li>
             </ul>
         </div>
-
-        <!-- Personal Home-Based -->
         <div class="bg-white p-4 shadow rounded-lg w-full max-w-xs" data-aos="zoom-in">
             <div class="w-16 h-16 flex items-center justify-center bg-white rounded-full mb-3">
-                <i class="fas fa-house-medical text-purple-700 text-2xl" aria-hidden="true"></i>
+                <i class="fas fa-house-medical text-green-700 text-2xl" aria-hidden="true"></i>
             </div>
-            <h3 class="text-lg font-semibold text-purple-700 mb-2">Personal Home-Based</h3>
+            <h3 class="text-lg font-semibold text-green-700 mb-2">Personal Home-Based</h3>
             <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
                 <li>Personal home-based</li>
                 <li>Medication support & supervision</li>
@@ -201,52 +170,44 @@
                 <li>Health monitoring</li>
             </ul>
         </div>
-
-        <!-- Health Insurance -->
         <div class="bg-white p-4 shadow rounded-lg w-full max-w-xs" data-aos="zoom-in">
             <div class="w-16 h-16 flex items-center justify-center bg-white rounded-full mb-3">
-                <i class="fas fa-shield-heart text-purple-700 text-2xl" aria-hidden="true"></i>
+                <i class="fas fa-shield-heart text-yellow-600 text-2xl" aria-hidden="true"></i>
             </div>
-            <h3 class="text-lg font-semibold text-purple-700 mb-2">Health Insurance</h3>
+            <h3 class="text-lg font-semibold text-yellow-600 mb-2">Health Insurance</h3>
             <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
                 <li>Tailored plans for individuals & families</li>
                 <li>Coverage for consultation & pharmacy</li>
                 <li>Peace of mind when it matters.</li>
             </ul>
         </div>
-
-        <!-- Wellness & Preventive Care -->
         <div class="bg-white p-4 shadow rounded-lg w-full max-w-xs" data-aos="zoom-in">
             <div class="w-16 h-16 flex items-center justify-center bg-white rounded-full mb-3">
-                <i class="fas fa-heart-pulse text-purple-700 text-2xl" aria-hidden="true"></i>
+                <i class="fas fa-heart-pulse text-pink-600 text-2xl" aria-hidden="true"></i>
             </div>
-            <h3 class="text-lg font-semibold text-purple-700 mb-2">Wellness & Preventive Care</h3>
+            <h3 class="text-lg font-semibold text-pink-600 mb-2">Wellness & Preventive Care</h3>
             <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
                 <li>Nutritional profiling and diet support</li>
                 <li>Mental health services</li>
                 <li>Routine health checks</li>
             </ul>
         </div>
-
-        <!-- Ambulance Services -->
         <div class="bg-white p-4 shadow rounded-lg w-full max-w-xs" data-aos="zoom-in">
             <div class="w-16 h-16 flex items-center justify-center bg-white rounded-full mb-3">
-                <i class="fas fa-ambulance text-purple-700 text-2xl" aria-hidden="true"></i>
+                <i class="fas fa-ambulance text-red-600 text-2xl" aria-hidden="true"></i>
             </div>
-            <h3 class="text-lg font-semibold text-purple-700 mb-2">Ambulance Services</h3>
+            <h3 class="text-lg font-semibold text-red-600 mb-2">Ambulance Services</h3>
             <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
                 <li>Emergency & non-emergency transport</li>
                 <li>Trained medical professionals on board</li>
                 <li>Timely trusted response</li>
             </ul>
         </div>
-
-        <!-- Emphatic Listening -->
         <div class="bg-white p-4 shadow rounded-lg w-full max-w-xs" data-aos="zoom-in">
             <div class="w-16 h-16 flex items-center justify-center bg-white rounded-full mb-3">
-                <i class="fas fa-ear-listen text-purple-700 text-2xl" aria-hidden="true"></i>
+                <i class="fas fa-ear-listen text-indigo-500 text-2xl" aria-hidden="true"></i>
             </div>
-            <h3 class="text-lg font-semibold text-purple-700 mb-2">Emphatic Listening</h3>
+            <h3 class="text-lg font-semibold text-indigo-600 mb-2">Emphatic Listening</h3>
             <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
                 <li>24 hours active listening sessions</li>
                 <li>Access to psychologist and therapists</li>
@@ -254,127 +215,124 @@
                 <li>Creating space for a health mental environment</li>
             </ul>
         </div>
-
-        <!-- Occupational Therapy -->
         <div class="bg-white p-4 shadow rounded-lg w-full max-w-xs" data-aos="zoom-in">
             <div class="w-16 h-16 flex items-center justify-center bg-white rounded-full mb-3">
-                <i class="fas fa-hand-holding-heart text-purple-700 text-2xl" aria-hidden="true"></i>
+                <i class="fas fa-hand-holding-heart text-gray-600 text-2xl" aria-hidden="true"></i>
             </div>
-            <h3 class="text-lg font-semibold text-purple-700 mb-2">Occupational Therapy</h3>
+            <h3 class="text-lg font-semibold text-gray-600 mb-2">Occupational Therapy</h3>
             <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
                 <li>Physiotherapy</li>
-                <li>Exercise & dance classes are suitable for elders </li>
+                <li>Exercise & dance classes are suitable for elders</li>
                 <li>Sales of adaptive equipments</li>
             </ul>
         </div>
     </div>
 </section>
 
-
-<!-- Why Avura -->
-<section class="px-6 py-12 text-center bg-amber-50">
-    <h2 class="text-2xl md:text-3xl font-bold text-purple-700 mb-6" data-aos="fade-down">
-        <i class="fas fa-star text-purple-700 mr-2" aria-hidden="true"></i>What sets us apart:
+<section class="px-4 sm:px-6 py-12 text-center bg-amber-50">
+    <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-blue-800 mb-6" data-aos="fade-down">
+        <i class="fas fa-star text-yellow-400 mr-2" aria-hidden="true"></i>What sets us apart:
     </h2>
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-5xl mx-auto text-sm">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto text-sm">
         <div data-aos="zoom-in" class="flex flex-col items-center">
             <div class="mb-2">
-                <i class="fas fa-shield text-purple-700 text-2xl" aria-hidden="true"></i>
+                <i class="fas fa-shield text-blue-700 text-2xl" aria-hidden="true"></i>
             </div>
             <p>Prevention-first philosophy</p>
         </div>
         <div data-aos="zoom-in" class="flex flex-col items-center">
             <div class="mb-2">
-                <i class="fas fa-house-laptop text-purple-700 text-2xl" aria-hidden="true"></i>
+                <i class="fas fa-house-laptop text-green-700 text-2xl" aria-hidden="true"></i>
             </div>
             <p>Home-based & digital delivery</p>
         </div>
         <div data-aos="zoom-in" class="flex flex-col items-center">
             <div class="mb-2">
-                <i class="fas fa-wallet text-purple-700 text-2xl" aria-hidden="true"></i>
+                <i class="fas fa-wallet text-orange-700 text-2xl" aria-hidden="true"></i>
             </div>
             <p>Affordable, personalized insurance</p>
         </div>
         <div data-aos="zoom-in" class="flex flex-col items-center">
             <div class="mb-2">
-                <i class="fas fa-map-location text-purple-700 text-2xl" aria-hidden="true"></i>
+                <i class="fas fa-map-location text-yellow-600 text-2xl" aria-hidden="true"></i>
             </div>
             <p>Nigerian-centered care</p>
         </div>
         <div data-aos="zoom-in" class="flex flex-col items-center">
             <div class="mb-2">
-                <i class="fas fa-hands-helping text-purple-700 text-2xl" aria-hidden="true"></i>
+                <i class="fas fa-hands-helping text-indigo-700 text-2xl" aria-hidden="true"></i>
             </div>
             <p>Empathy in action</p>
         </div>
     </div>
 </section>
 
-<!-- Insurance Plans -->
-<section class="px-6 py-12 bg-gray-100">
-    <h2 class="text-2xl md:text-3xl font-bold text-center text-purple-700 mb-8" data-aos="fade-up">
-        <i class="fas fa-shield-alt text-purple-700 mr-2" aria-hidden="true"></i>Flexible Insurance Plans That Fit You
+<section class="px-4 sm:px-6 py-12 bg-gray-100">
+    <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-center text-blue-800 mb-8" data-aos="fade-up">
+        <i class="fas fa-shield-alt text-yellow-500 mr-2" aria-hidden="true"></i>Flexible Insurance Plans That Fits You
     </h2>
-    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        <!-- Avura SafeBuddy -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
         <div class="bg-white p-6 rounded-lg shadow" data-aos="flip-left">
             <div class="mb-4 w-32 h-32 flex items-center justify-center bg-gray-200 rounded-full mx-auto">
-                <i class="fas fa-user-shield text-purple-700 text-4xl" aria-hidden="true"></i>
+                <i class="fas fa-user-shield text-blue-700 text-4xl" aria-hidden="true"></i>
             </div>
-            <h3 class="text-xl font-bold text-purple-700 mb-2">
-                <i class="fas fa-shield-alt text-purple-700 mr-2" aria-hidden="true"></i>Avura SafeBuddy
+            <h3 class="text-center text-xl font-bold text-blue-700 mb-2">
+                <i class="fas fa-shield-alt text-blue-700 mr-2" aria-hidden="true"></i>Avura SafeBuddy
             </h3>
-            <p class="mb-3">Entry-level care for individuals</p>
-            <ul class="list-none text-gray-700 mb-4">
-                <li><div class="w-6 h-6 flex items-center justify-center bg-gray-200 rounded-full mr-2"><i class="fas fa-wallet text-purple-700" aria-hidden="true"></i></div>Affordable protection</li>
-                <li><div class="w-6 h-6 flex items-center justify-center bg-gray-200 rounded-full mr-2"><i class="fas fa-graduation-cap text-purple-700" aria-hidden="true"></i></div>Great for students</li>
-                <li><div class="w-6 h-6 flex items-center justify-center bg-gray-200 rounded-full mr-2"><i class="fas fa-briefcase text-purple-700" aria-hidden="true"></i></div>Early career professionals</li>
-                <li><div class="w-6 h-6 flex items-center justify-center bg-gray-200 rounded-full mr-2"><i class="fas fa-stethoscope text-purple-700" aria-hidden="true"></i></div>Basic consultation coverage</li>
+            <p class="text-center mb-3">Entry-level care for individuals</p>
+            <ul class="list-disc text-gray-700 mb-4">
+                <li>Affordable protection</li>
+                <li>Great for students</li>
+                <li>Early career professionals</li>
+                <li>Basic consultation coverage</li>
             </ul>
-           <a href="https://selar.com/i21642567j?currency=NGN">
-               <button class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-medium">
-                   <i class="fas fa-check mr-2" aria-hidden="true"></i>Choose Plan
-               </button>
-           </a>
+            <div class="flex justify-center">
+                <a href="https://selar.com/i21642567j?currency=NGN">
+                    <button class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-medium">
+                        <i class="fas fa-check mr-2" aria-hidden="true"></i>Choose Plan
+                    </button>
+                </a>
+            </div>
         </div>
-        <!-- Avura SafePal -->
         <div class="bg-white p-6 rounded-lg shadow" data-aos="flip-right">
             <div class="mb-4 w-32 h-32 flex items-center justify-center bg-gray-200 rounded-full mx-auto">
-                <i class="fas fa-users text-purple-700 text-4xl" aria-hidden="true"></i>
+                <i class="fas fa-users text-green-700 text-4xl" aria-hidden="true"></i>
             </div>
-            <h3 class="text-xl font-bold text-purple-700 mb-2">
-                <i class="fas fa-shield-heart text-purple-700 mr-2" aria-hidden="true"></i>Avura SafePal
+            <h3 class="text-center text-xl font-bold text-green-700 mb-2">
+                <i class="fas fa-shield-heart text-green-700 mr-2" aria-hidden="true"></i>Avura SafePal
             </h3>
-            <p class="mb-3">More coverage for growing needs</p>
-            <ul class="list-none text-gray-700 mb-4">
-                <li><div class="w-6 h-6 flex items-center justify-center bg-gray-200 rounded-full mr-2"><i class="fas fa-users text-purple-700" aria-hidden="true"></i></div>Ideal for small family and teams</li>
-                <li><div class="w-6 h-6 flex items-center justify-center bg-gray-200 rounded-full mr-2"><i class="fas fa-hospital text-purple-700" aria-hidden="true"></i></div>Includes outpatient coverage</li>
-                <li><div class="w-6 h-6 flex items-center justify-center bg-gray-200 rounded-full mr-2"><i class="fas fa-baby text-purple-700" aria-hidden="true"></i></div>Maternity support</li>
-                <li><div class="w-6 h-6 flex items-center justify-center bg-gray-200 rounded-full mr-2"><i class="fas fa-heartbeat text-purple-700" aria-hidden="true"></i></div>Wellness support included</li>
+            <p class="text-center mb-3">More coverage for growing needs</p>
+            <ul class="list-disc text-gray-700 mb-4">
+                <li>Ideal for small family and teams</li>
+                <li>Includes outpatient coverage</li>
+                <li>Maternity support</li>
+                <li>Wellness support included</li>
             </ul>
-            <a href="https://selar.com/ii7fy55vk7">
-                <button class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-medium">
-                    <i class="fas fa-check mr-2" aria-hidden="true"></i>Choose Plan
-                </button>
-            </a>
+            <div class="flex justify-center">
+                <a href="https://selar.com/ii7fy55vk7">
+                    <button class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-medium">
+                        <i class="fas fa-check mr-2" aria-hidden="true"></i>Choose Plan
+                    </button>
+                </a>
+            </div>
         </div>
     </div>
-    <div class="text-center mt-8" data-aos="fade-up">
-        <a onclick="toggleModal()" class="text-purple-700 underline font-semibold hover:text-purple-900">
+    <div class="text-center mt-6" data-aos="fade-up">
+        <a onclick="toggleModal()" class="text-blue-700 underline font-semibold hover:text-blue-900">
             <i class="fas fa-download mr-2" aria-hidden="true"></i>Download Plan Guide
         </a>
         <div id="downloadModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
-            <div class="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
-                <h3 class="text-lg font-semibold text-purple-700 mb-4">Choose a Guide to Download</h3>
+            <div class="bg-white p-4 sm:p-6 rounded-lg shadow-lg max-w-sm w-full">
+                <h3 class="text-lg font-semibold text-blue-700 mb-4">Choose a Guide to Download</h3>
                 <div class="flex flex-col space-y-3">
-                    <a href="assets/safebuddy.pdf" download class="text-purple-700 underline font-semibold hover:text-purple-900 text-center">
+                    <a href="assets/safebuddy.pdf" download class="text-blue-700 underline font-semibold hover:text-purple-900 text-center">
                         <i class="fas fa-download mr-2" aria-hidden="true"></i>SafeBuddy
                     </a>
-                    <a href="assets/safepal%20.pdf" download class="text-purple-700 underline font-semibold hover:text-purple-900 text-center">
-                        <i class="fas fa-download mr-2" aria-hidden="true"></i>Safepal
+                    <a href="assets/safepal.pdf" download class="text-blue-700 underline font-semibold hover:text-purple-900 text-center">
+                        <i class="fas fa-download mr-2" aria-hidden="true"></i>SafePal
                     </a>
                 </div>
-                <button onclick="toggleModal()" class="mt-4 text-sm text-gray-700 hover:text-purple-900">Close</button>
+                <button onclick="toggleModal()" class="mt-4 font-bold text-sm text-gray-700 hover:text-purple-900">Close</button>
             </div>
         </div>
         <script>
@@ -385,108 +343,79 @@
         </script>
     </div>
 </section>
-<section id="faqs" class="bg-gray-50 py-16 px-6 md:px-20">
-    <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold text-center text-purple-700 mb-10">Frequently Asked Questions</h2>
 
+<section id="faqs" class="bg-gray-50 py-12 px-4 sm:px-6 md:px-12">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl font-bold text-center text-blue-700 mb-8">Frequently Asked Questions</h2>
         <div class="space-y-4" x-data="{ selected: null }">
-            <!-- FAQ Item 1 -->
             <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                <button
-                        @click="selected !== 1 ? selected = 1 : selected = null"
-                        class="w-full flex justify-between items-center px-6 py-4 text-left text-lg font-semibold text-purple-700 hover:bg-purple-100"
-                >
+                <button @click="selected !== 1 ? selected = 1 : selected = null" class="w-full flex justify-between items-center px-4 sm:px-6 py-3 text-left text-lg font-semibold text-blue-700 hover:bg-blue-100">
                     <span>How do I join Avura Cares?</span>
-                    <svg x-show="selected !== 1" class="w-6 h-6 transform rotate-0" fill="none" stroke="currentColor" stroke-width="2"
-                         viewBox="0 0 24 24">
+                    <svg x-show="selected !== 1" class="w-5 h-5 transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M19 9l-7 7-7-7" />
                     </svg>
-                    <svg x-show="selected === 1" class="w-6 h-6 transform rotate-180" fill="none" stroke="currentColor" stroke-width="2"
-                         viewBox="0 0 24 24">
+                    <svg x-show="selected === 1" class="w-5 h-5 transform rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
-                <div x-show="selected === 1" x-collapse class="px-6 pb-4 text-gray-700">
+                <div x-show="selected === 1" x-collapse class="px-4 sm:px-6 py-3 text-gray-700">
                     Simply contact us through our website, phone, or WhatsApp to get started with your personalized healthcare plan.
                 </div>
             </div>
-
-            <!-- FAQ Item 2 -->
             <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                <button
-                        @click="selected !== 2 ? selected = 2 : selected = null"
-                        class="w-full flex justify-between items-center px-6 py-4 text-left text-lg font-semibold text-purple-700 hover:bg-purple-100"
-                >
+                <button @click="selected !== 2 ? selected = 2 : selected = null" class="w-full flex justify-between items-center px-4 sm:px-6 py-3 text-left text-lg font-semibold text-blue-700 hover:bg-blue-100">
                     <span>What’s included in my insurance plan?</span>
-                    <svg x-show="selected !== 2" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-                         viewBox="0 0 24 24">
+                    <svg x-show="selected !== 2" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M19 9l-7 7-7-7" />
                     </svg>
-                    <svg x-show="selected === 2" class="w-6 h-6 transform rotate-180" fill="none" stroke="currentColor" stroke-width="2"
-                         viewBox="0 0 24 24">
+                    <svg x-show="selected === 2" class="w-5 h-5 transform rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
-                <div x-show="selected === 2" x-collapse class="px-6 pb-4 text-gray-700">
+                <div x-show="selected === 2" x-collapse class="px-4 sm:px-6 py-3 text-gray-700">
                     Coverage varies by plan but includes consultations, pharmacy, and wellness services. Download our plan guide for full details.
                 </div>
             </div>
-
-            <!-- FAQ Item 3 -->
             <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                <button
-                        @click="selected !== 3 ? selected = 3 : selected = null"
-                        class="w-full flex justify-between items-center px-6 py-4 text-left text-lg font-semibold text-purple-700 hover:bg-purple-100"
-                >
+                <button @click="selected !== 3 ? selected = 3 : selected = null" class="w-full flex justify-between items-center px-4 sm:px-6 py-3 text-left text-lg font-semibold text-blue-700 hover:bg-blue-100">
                     <span>Can I get a doctor to visit me at home?</span>
-                    <svg x-show="selected !== 3" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-                         viewBox="0 0 24 24">
+                    <svg x-show="selected !== 3" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M19 9l-7 7-7-7" />
                     </svg>
-                    <svg x-show="selected === 3" class="w-6 h-6 transform rotate-180" fill="none" stroke="currentColor" stroke-width="2"
-                         viewBox="0 0 24 24">
+                    <svg x-show="selected === 3" class="w-5 h-5 transform rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
-                <div x-show="selected === 3" x-collapse class="px-6 pb-4 text-gray-700">
+                <div x-show="selected === 3" x-collapse class="px-4 sm:px-6 py-3 text-gray-700">
                     Yes! Our domiciliary care service brings qualified healthcare professionals directly to your home.
                 </div>
             </div>
-
-            <!-- FAQ Item 4 -->
             <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                <button
-                        @click="selected !== 4 ? selected = 4 : selected = null"
-                        class="w-full flex justify-between items-center px-6 py-4 text-left text-lg font-semibold text-purple-700 hover:bg-purple-100"
-                >
+                <button @click="selected !== 4 ? selected = 4 : selected = null" class="w-full flex justify-between items-center px-4 sm:px-6 py-3 text-left text-lg font-semibold text-blue-700 hover:bg-blue-100">
                     <span>Where is Avura available?</span>
-                    <svg x-show="selected !== 4" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-                         viewBox="0 0 24 24">
+                    <svg x-show="selected !== 4" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M19 9l-7 7-7-7" />
                     </svg>
-                    <svg x-show="selected === 4" class="w-6 h-6 transform rotate-180" fill="none" stroke="currentColor" stroke-width="2"
-                         viewBox="0 0 24 24">
+                    <svg x-show="selected === 4" class="w-5 h-5 transform rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
-                <div x-show="selected === 4" x-collapse class="px-6 pb-4 text-gray-700">
+                <div x-show="selected === 4" x-collapse class="px-4 sm:px-6 py-3 text-gray-700">
                     We currently serve across Nigeria with plans to expand our coverage areas continuously.
                 </div>
             </div>
         </div>
     </div>
 </section>
-<footer id="contact" class="bg-purple-900 text-white py-10 px-6">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-        <!-- Logo & About -->
+
+<footer id="contact" class="bg-blue-900 text-white py-8 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
         <div>
-            <h2 class="text-2xl font-bold text-amber-400 mb-2">Avura</h2>
+            <h2 class="text-xl font-bold text-amber-400 mb-2">Avura</h2>
             <p class="text-sm text-gray-300">
                 Personalized healthcare plans that work for you — anytime, anywhere.
             </p>
         </div>
-
-        <!-- Quick Links -->
         <div>
             <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
             <ul class="space-y-2 text-gray-300 text-sm">
@@ -497,42 +426,45 @@
                 <li><a href="#contact" class="hover:text-amber-400">Contact</a></li>
             </ul>
         </div>
-
-        <!-- Contact Info -->
         <div>
             <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
-            <ul class="space-y-2 text-gray-300 text-sm">
-                <li>📞 +234 800 000 0000</li>
-                <li>📧 support@avura.com</li>
-                <li>📍 Lagos, Nigeria</li>
-            </ul>
-
+            <form action="https://formspree.io/f/your-endpoint" method="POST" class="space-y-1 text-sm">
+                <div>
+                    <label for="email" class="block text-gray-700">Email</label>
+                    <input type="email" id="email" name="email" required class="text-black w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" placeholder="Enter your email">
+                </div>
+                <div>
+                    <label for="message" class="block text-gray-700">Message</label>
+                    <textarea id="message" name="message" required rows="4" class="text-black w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" placeholder="Leave your feedback or message here"></textarea>
+                </div>
+                <button type="submit" class="bg-amber-600 text-white px-4 py-2 rounded-full hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-400">Send Message</button>
+            </form>
+            <div id="thank-you" class="hidden mt-2 text-green-600 text-sm">Thank you for your feedback! We will get back to you soon.</div>
         </div>
-
-        <!-- Socials -->
         <div>
             <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
             <div class="flex space-x-4">
-                <a href="#" class="hover:text-amber-400" aria-label="Instagram">📸</a>
-                <a href="#" class="hover:text-amber-400" aria-label="Facebook">📘</a>
-                <a href="#" class="hover:text-amber-400" aria-label="Twitter">🐦</a>
-                <a href="#" class="hover:text-amber-400" aria-label="WhatsApp">💬</a>
+                <a href="https://www.instagram.com/avura.cares?igsh=MTRhOTByOTc2MW1nZA==" class="hover:text-amber-400" aria-label="Instagram">
+                    <i class="fab fa-instagram text-xl" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.facebook.com/share/16sXw2jHpQ/?mibextid=wwXIfr" class="hover:text-amber-400" aria-label="Facebook">
+                    <i class="fab fa-facebook-f text-xl" aria-hidden="true"></i>
+                </a>
+                <a href="https://x.com/avura_cares?s=21" class="hover:text-amber-400" aria-label="Twitter">
+                    <i class="fab fa-twitter text-xl" aria-hidden="true"></i>
+                </a>
+                <a href="https://wa.me/2348012345678?text=Hello%20I%20saw%20your%20website " class="hover:text-amber-400" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp text-xl" aria-hidden="true"></i>
+                </a>
             </div>
         </div>
     </div>
-
-
-    <!-- Bottom Bar -->
-    <div class="mt-8 border-t border-purple-700 pt-4 text-center text-sm text-gray-400">
+    <div class="mt-4 border-t border-blue-700 pt-2 text-center text-xs text-gray-400">
         &copy; 2025 Avura. All rights reserved.
     </div>
 </footer>
 
-
-<!-- Add this if Alpine.js isn’t already included -->
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-
-<!-- AOS JS + Mobile Nav Toggle -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
     AOS.init({ duration: 1000, once: true });
@@ -543,14 +475,46 @@
     const closeIcon = document.getElementById('close-icon');
 
     let isOpen = false;
-
     menuToggle.addEventListener('click', () => {
         isOpen = !isOpen;
-        mobileMenu.style.maxHeight = isOpen ? mobileMenu.scrollHeight + 'px' : '0';
+        mobileMenu.style.maxHeight = isOpen ? `${mobileMenu.scrollHeight}px` : '0';
         hamburgerIcon.classList.toggle('hidden');
         closeIcon.classList.toggle('hidden');
     });
-</script>
 
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (isOpen) {
+                isOpen = false;
+                mobileMenu.style.maxHeight = '0';
+                hamburgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        });
+    });
+
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = this;
+        fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                document.getElementById('thank-you').classList.remove('hidden');
+                form.reset();
+                setTimeout(() => document.getElementById('thank-you').classList.add('hidden'), 5000);
+            } else {
+                alert('There was an issue submitting your feedback. Please try again.');
+            }
+        }).catch(error => {
+            alert('An error occurred. Please try again later.');
+        });
+    });
+</script>
 </body>
 </html>
