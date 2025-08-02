@@ -267,7 +267,7 @@
     </div>
 </section>
 
-<section class="px-4 sm:px-6 py-12 bg-gray-100">
+<section id="insurance" class="px-4 sm:px-6 py-12 bg-gray-100">
     <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-center text-blue-800 mb-8" data-aos="fade-up">
         <i class="fas fa-shield-alt text-yellow-500 mr-2" aria-hidden="true"></i>Flexible Insurance Plans That Fits You
     </h2>
@@ -428,7 +428,7 @@
         </div>
         <div>
             <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
-            <form action="https://formspree.io/f/your-endpoint" method="POST" class="space-y-1 text-sm">
+            <form action="https://formspree.io/f/mvgqbokl" method="POST" class="space-y-1 text-sm">
                 <div>
                     <label for="email" class="block text-gray-700">Email</label>
                     <input type="email" id="email" name="email" required class="text-black w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" placeholder="Enter your email">
@@ -464,6 +464,88 @@
     </div>
 </footer>
 
+<section>
+    <!-- Pop-Up Banner -->
+    <div id="affiliate-popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white p-6 rounded-lg max-w-md w-full mx-4 shadow-lg relative">
+            <span id="close-popup" class="absolute top-2 right-4 text-2xl cursor-pointer text-gray-700 hover:text-red-500">&times;</span>
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Become an Avura Cares Affiliate!</h2>
+            <p class="text-gray-600 mb-2">Earn 10% commission on every insurance package!</p>
+            <p class="text-gray-600 mb-2">Join our program, share your link, and get paid for every successful referral</p>
+            <a href="https://wa.me/23478076100248?text=Hello%20I%20want%20be%20an%20Affiliate%20with%20Avura%20Cares,%20My%20email%20is:%20" class="inline-block bg-blue-800 text-white py-2 px-4 rounded-md font-semibold hover:bg-green-700">Become an Affiliate</a>
+        </div>
+    </div>
+</section>
+<script>
+    let popupCount = 0; // Track number of pop-up displays
+    const maxPopups = 2; // Allow pop-up to show twice
+
+    // Show pop-up after 5 seconds
+    if (popupCount < maxPopups) {
+        setTimeout(() => {
+            if (popupCount < maxPopups) {
+                document.getElementById('affiliate-popup').classList.remove('hidden');
+                popupCount++;
+            }
+        }, 2000);
+    }
+
+    // Create Intersection Observer to detect when #insurance section is in view
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && popupCount < maxPopups) {
+                document.getElementById('affiliate-popup').classList.remove('hidden');
+                popupCount++;
+                // Reset after 30 seconds to allow potential re-showing (optional)
+                setTimeout(() => {
+                    if (popupCount < maxPopups) popupCount--; // Allow one more if under limit
+                }, 30000);
+            }
+        });
+    }, {
+        threshold: 0.5 // Trigger when 50% of the section is visible
+    });
+
+    // Observe the #insurance section
+    const targetSection = document.querySelector('#insurance');
+    if (targetSection) {
+        observer.observe(targetSection);
+    }
+
+    // Close pop-up when close button is clicked
+    document.getElementById('close-popup').addEventListener('click', () => {
+        document.getElementById('affiliate-popup').classList.add('hidden');
+    });
+
+    // Close pop-up when affiliate link is clicked
+    document.querySelector('a[href="https://wa.me/23478076100248?text=Hello%20I%20want%20be%20an%20Affiliate%20with%20Avura%20Cares,%20My%20email%20is:%20"]').addEventListener('click', (e) => {
+        document.getElementById('affiliate-popup').classList.add('hidden');
+    });
+</script>
+
+<script src="script.js">
+    document.addEventListener('DOMContentLoaded', () => {
+        const popup = document.getElementById('affiliate-popup');
+        const closeBtn = document.getElementById('close-popup');
+
+        // Show pop-up after 10 seconds
+        setTimeout(() => {
+            popup.classList.remove('hidden');
+        }, 10000); // 10 seconds delay
+
+        // Close pop-up when close button is clicked
+        closeBtn.addEventListener('click', () => {
+            popup.classList.add('hidden');
+        });
+
+        // Optional: Close pop-up when clicking outside the pop-up content
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                popup.classList.add('hidden');
+            }
+        });
+    });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
