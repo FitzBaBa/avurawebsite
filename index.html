@@ -18,7 +18,6 @@
             <a href="#services" class="hover:text-amber-400">Services</a>
             <a href="#about" class="hover:text-amber-400">About</a>
             <a href="#contact" class="hover:text-amber-400">Contact</a>
-            <a id="admin-link" href="#admin-dashboard" class="hover:text-amber-400">Admin Dashboard</a>
         </nav>
         <button id="menu-toggle" class="md:hidden focus:outline-none text-white" aria-label="Toggle menu">
             <svg id="hamburger-icon" class="w-7 h-7" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -35,7 +34,6 @@
             <a href="#services" class="hover:text-amber-400">Services</a>
             <a href="#about" class="hover:text-amber-400">About</a>
             <a href="#contact" class="hover:text-amber-400">Contact</a>
-            <a id="admin-link-mobile" href="#admin-dashboard" class="hover:text-amber-400">Admin Dashboard</a>
         </nav>
     </div>
 </header>
@@ -408,7 +406,8 @@
 <footer id="contact" class="bg-blue-900 text-white py-8 px-4 sm:px-6">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
         <div>
-            <h2 class="text-xl font-bold text-amber-400 mb-2">Avura</h2>
+            <a id="admin-link" href="#admin-dashboard" class="hover:text-amber-400 text-xl font-bold text-amber-400 mb-2">Avura</a>
+            
             <p class="text-sm text-gray-300">
                 Personalized healthcare plans that work for you — anytime, anywhere.
             </p>
@@ -425,7 +424,7 @@
         </div>
         <div>
             <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
-            <form action="https://formspree.io/f/mvgqbokl" method="POST" class="space-y-1 text-sm">
+            <form id="contact-form" action="https://formspree.io/f/mvgqbokl" method="POST" class="space-y-1 text-sm">
                 <div>
                     <label for="email" class="block text-gray-700">Email</label>
                     <input type="email" id="email" name="email" required class="text-black w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" placeholder="Enter your email">
@@ -477,11 +476,86 @@
 <!-- Admin Dashboard -->
 <section id="admin-dashboard" class="hidden px-4 py-12 bg-gray-100">
     <h2 class="text-2xl font-bold mb-4 text-blue-800">Admin Analytics Dashboard</h2>
-    <div class="bg-white p-6 rounded-lg shadow">
-        <canvas id="analytics-chart" class="w-full h-64"></canvas>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="text-lg font-semibold mb-2">Unique Visitors</h3>
+            <p id="unique-visitors" class="text-2xl font-bold">0</p>
+            <p class="text-sm text-gray-600">Are you growing or recycling the same user base?</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="text-lg font-semibold mb-2">Page Views</h3>
+            <p id="page-views" class="text-2xl font-bold">0</p>
+            <p class="text-sm text-gray-600">Are users exploring or exiting after a quick glance?</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="text-lg font-semibold mb-2">Sessions</h3>
+            <p id="sessions" class="text-2xl font-bold">0</p>
+            <p class="text-sm text-gray-600">Total user sessions.</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="text-lg font-semibold mb-2">Traffic Sources</h3>
+            <div id="traffic-sources" class="text-sm"></div>
+            <p class="text-sm text-gray-600">Which channels bring qualified, high-intent users?</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="text-lg font-semibold mb-2">Bounce Rate</h3>
+            <p id="bounce-rate" class="text-2xl font-bold">0%</p>
+            <p class="text-sm text-gray-600">Are visitors finding value or leaving immediately?</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="text-lg font-semibold mb-2">Average Session Duration</h3>
+            <p id="avg-session-duration" class="text-2xl font-bold">0s</p>
+            <p class="text-sm text-gray-600">Are users meaningfully engaging or confused and circling?</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="text-lg font-semibold mb-2">Pages per Session</h3>
+            <p id="pages-per-session" class="text-2xl font-bold">0</p>
+            <p class="text-sm text-gray-600">Is your site built for discovery or leading to dead ends?</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="text-lg font-semibold mb-2">Interaction Events</h3>
+            <p id="interaction-events" class="text-2xl font-bold">0</p>
+            <p class="text-sm text-gray-600">Are users actively engaging or passively browsing?</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="text-lg font-semibold mb-2">Conversion Rate</h3>
+            <p id="conversion-rate" class="text-2xl font-bold">0%</p>
+            <p class="text-sm text-gray-600">Are users completing key actions that matter to the business?</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="text-lg font-semibold mb-2">Funnel Drop-Off Rates</h3>
+            <div id="funnel-drop-off" class="text-sm"></div>
+            <p class="text-sm text-gray-600">Where in the journey are users abandoning your flow?</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="text-lg font-semibold mb-2">Form Abandonment Rate</h3>
+            <p id="form-abandonment" class="text-2xl font-bold">0%</p>
+            <p class="text-sm text-gray-600">Are your forms driving signups or silently killing them?</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="text-lg font-semibold mb-2">CTA Click-Through Rate (CTR)</h3>
+            <p id="cta-ctr" class="text-2xl font-bold">0%</p>
+            <p class="text-sm text-gray-600">Is your messaging and layout motivating next-step action?</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="text-lg font-semibold mb-2">Retention Rate</h3>
+            <p id="retention-rate" class="text-2xl font-bold">0%</p>
+            <p class="text-sm text-gray-600">Are users returning because they see lasting value?</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="text-lg font-semibold mb-2">Customer Satisfaction Score</h3>
+            <p id="csat-score" class="text-2xl font-bold">N/A</p>
+            <p class="text-sm text-gray-600">How do users feel about your product experience?</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+            <h3 class="text-lg font-semibold mb-2">Technical Performance</h3>
+            <div id="technical-performance" class="text-sm"></div>
+            <p class="text-sm text-gray-600">Is the website fast, stable, and technically reliable?</p>
+        </div>
     </div>
-    <h3 class="text-xl font-semibold mt-6 mb-2 text-blue-800">Recent Events</h3>
-    <ul id="recent-events" class="space-y-2 text-gray-700"></ul>
+    <div class="mt-8 bg-white p-6 rounded shadow">
+        <canvas id="page-views-chart" class="w-full h-64"></canvas>
+    </div>
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
@@ -498,7 +572,6 @@
 
     let isOpen = false;
     menuToggle.addEventListener('click', () => {
-        console.log('Mobile menu toggled');
         isOpen = !isOpen;
         mobileMenu.style.maxHeight = isOpen ? `${mobileMenu.scrollHeight}px` : '0';
         hamburgerIcon.classList.toggle('hidden');
@@ -507,7 +580,6 @@
 
     document.querySelectorAll('#mobile-menu a').forEach(link => {
         link.addEventListener('click', () => {
-            console.log(`Mobile menu link clicked: ${link.href}`);
             if (isOpen) {
                 isOpen = false;
                 mobileMenu.style.maxHeight = '0';
@@ -519,7 +591,6 @@
 
     // Download Modal
     function toggleModal() {
-        console.log('Download modal toggled');
         const modal = document.getElementById('downloadModal');
         modal.classList.toggle('hidden');
     }
@@ -530,7 +601,6 @@
     if (popupCount < maxPopups) {
         setTimeout(() => {
             if (popupCount < maxPopups) {
-                console.log('Showing affiliate popup');
                 document.getElementById('affiliate-popup').classList.remove('hidden');
                 popupCount++;
             }
@@ -540,7 +610,6 @@
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting && popupCount < maxPopups) {
-                console.log('Affiliate popup triggered by intersection');
                 document.getElementById('affiliate-popup').classList.remove('hidden');
                 popupCount++;
                 setTimeout(() => {
@@ -553,26 +622,23 @@
     if (targetSection) observer.observe(targetSection);
 
     document.getElementById('close-popup').addEventListener('click', () => {
-        console.log('Affiliate popup closed');
         document.getElementById('affiliate-popup').classList.add('hidden');
     });
 
     document.querySelector('a[href="https://wa.me/2348076100248?text=Hello%20I%20want%20be%20an%20Affiliate%20with%20Avura%20Cares,%20My%20email%20is:%20"]').addEventListener('click', () => {
-        console.log('Affiliate link clicked, closing popup');
         document.getElementById('affiliate-popup').classList.add('hidden');
     });
 
     // Form Submission
-    document.querySelector('form').addEventListener('submit', function(e) {
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        console.log('Form submitted');
         const form = this;
         fetch(form.action, {
             method: 'POST',
             body: new FormData(form),
             headers: { 'Accept': 'application/json' }
         }).then(response => {
-            console.log('Form submission response:', response.status);
             if (response.ok) {
                 document.getElementById('thank-you').classList.remove('hidden');
                 form.reset();
@@ -581,95 +647,173 @@
                 alert('There was an issue submitting your feedback. Please try again.');
             }
         }).catch(error => {
-            console.error('Form submission error:', error);
             alert('An error occurred. Please try again later.');
         });
     });
 
+    // Analytics Tracking
+    const proxyUrl = 'https://your-proxy-url'; // Replace with your actual proxy URL
+    let userId = localStorage.getItem('userId');
+    if (!userId) {
+        userId = crypto.randomUUID();
+        localStorage.setItem('userId', userId);
+    }
+    let sessionId = crypto.randomUUID();
+    let sessionStart = Date.now();
+    let pageViews = 0;
+    let interactions = 0;
+    let isReturning = localStorage.getItem('visited') ? true : false;
+    localStorage.setItem('visited', 'true');
+    let startTime = performance.now();
+    let isBounced = true;
+    let formStarted = false;
+
+    function trackEvent(eventType, data = {}) {
+        fetch(`${proxyUrl}/api/track`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                event_type: eventType,
+                user_id: userId,
+                session_id: sessionId,
+                timestamp: new Date().toISOString(),
+                event_data: { ...data, userAgent: navigator.userAgent, referrer: document.referrer, url: window.location.href }
+            })
+        }).catch(err => console.error('Tracking error:', err));
+    }
+
+    // Page View
+    trackEvent('page_view');
+    pageViews++;
+
+    // Interaction Events (clicks)
+    document.addEventListener('click', (e) => {
+        isBounced = false;
+        interactions++;
+        trackEvent('click', { element: e.target.tagName, text: e.target.innerText.trim() || e.target.href });
+    });
+
+    // Session End (unload or visibility change)
+    function endSession() {
+        const duration = (Date.now() - sessionStart) / 1000;
+        trackEvent('session_end', { duration: duration, pages: pageViews, interactions: interactions, bounced: isBounced });
+    }
+    window.addEventListener('beforeunload', endSession);
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') endSession();
+    });
+
+    // Traffic Sources (referrer)
+    trackEvent('traffic_source', { referrer: document.referrer });
+
+    // Bounce Rate (tracked on endSession)
+
+    // Average Session Duration (tracked on endSession)
+
+    // Pages per Session (tracked on endSession)
+
+    // Conversion Rate (e.g., form submit)
+    contactForm.addEventListener('submit', () => {
+        trackEvent('conversion', { type: 'form_submit' });
+    });
+
+    // Funnel Drop-Off (example for form)
+    // Assume funnel steps: view form, start form, submit form
+    trackEvent('funnel_step', { step: 'view_form' });
+    contactForm.addEventListener('input', () => {
+        if (!formStarted) {
+            formStarted = true;
+            trackEvent('funnel_step', { step: 'start_form' });
+        }
+    });
+
+    // Form Abandonment
+    window.addEventListener('beforeunload', () => {
+        if (formStarted && !contactForm.checkValidity()) {
+            trackEvent('form_abandonment');
+        }
+    });
+
+    // CTA CTR (example for explore button)
+    document.querySelector('button.bg-amber-500').addEventListener('click', () => {
+        trackEvent('cta_click', { label: 'Explore Our Services' });
+    });
+
+    // Retention & Loyalty (isReturning)
+    trackEvent('user_type', { returning: isReturning });
+
+    // Customer Satisfaction (add a survey form if needed)
+    // Example: Assume a rating input
+    // trackEvent('csat', { score: rating });
+
+    // Technical Performance
+    window.addEventListener('load', () => {
+        const performanceTiming = performance.timing;
+        const loadTime = performanceTiming.loadEventEnd - performanceTiming.navigationStart;
+        trackEvent('performance', { load_time: loadTime / 1000, dom_content_loaded: (performanceTiming.domContentLoadedEventEnd - performanceTiming.navigationStart) / 1000 });
+    });
+
     // Dashboard Logic
     function loadDashboard() {
-        console.log('loadDashboard function called');
-        const dashboardSection = document.getElementById('admin-dashboard');
-        if (!dashboardSection) {
-            console.error('Dashboard section not found');
-            return;
-        }
-        dashboardSection.classList.remove('hidden');
-        console.log('Dashboard section made visible');
-
-        const canvas = document.getElementById('analytics-chart');
-        if (!canvas) {
-            console.error('Analytics chart canvas not found');
-            return;
-        }
-
-        const ctx = canvas.getContext('2d');
-        if (!ctx) {
-            console.error('Failed to get 2D context for canvas');
-            return;
-        }
-
+        document.getElementById('admin-dashboard').classList.remove('hidden');
+        const ctx = document.getElementById('page-views-chart').getContext('2d');
         const chart = new Chart(ctx, {
             type: 'line',
-            data: {
-                labels: ['10:00', '10:05', '10:10'],
-                datasets: [{
-                    label: 'Page Views (Last Hour)',
-                    data: [2, 1, 3],
-                    borderColor: '#1E3A8A',
-                    backgroundColor: 'rgba(30, 58, 138, 0.1)',
-                    fill: true
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: { beginAtZero: true, title: { display: true, text: 'Page Views' } },
-                    x: { title: { display: true, text: 'Time' } }
-                }
-            }
+            data: { labels: [], datasets: [{ label: 'Page Views', data: [] }] }
         });
-        console.log('Chart initialized');
 
-        const eventsList = document.getElementById('recent-events');
-        if (!eventsList) {
-            console.error('Recent events list not found');
-            return;
+        function updateDashboard() {
+            fetch(`${proxyUrl}/api/metrics`, {
+                headers: { Authorization: `Bearer ${authToken}` } // Assume authToken from login
+            }).then(res => res.json())
+                .then(data => {
+                    document.getElementById('unique-visitors').textContent = data.unique_visitors;
+                    document.getElementById('page-views').textContent = data.page_views;
+                    document.getElementById('sessions').textContent = data.sessions;
+                    const trafficTable = document.getElementById('traffic-sources');
+                    trafficTable.innerHTML = '';
+                    for (const [source, count] of Object.entries(data.traffic_sources)) {
+                        trafficTable.innerHTML += `<p>${source}: ${count}</p>`;
+                    }
+                    document.getElementById('bounce-rate').textContent = data.bounce_rate + '%';
+                    document.getElementById('avg-session-duration').textContent = data.avg_session_duration + 's';
+                    document.getElementById('pages-per-session').textContent = data.pages_per_session;
+                    document.getElementById('interaction-events').textContent = data.interaction_events;
+                    document.getElementById('conversion-rate').textContent = data.conversion_rate + '%';
+                    const funnelTable = document.getElementById('funnel-drop-off');
+                    funnelTable.innerHTML = '';
+                    for (const [step, rate] of Object.entries(data.funnel_drop_off)) {
+                        funnelTable.innerHTML += `<p>${step}: ${rate}%</p>`;
+                    }
+                    document.getElementById('form-abandonment').textContent = data.form_abandonment + '%';
+                    document.getElementById('cta-ctr').textContent = data.cta_ctr + '%';
+                    document.getElementById('retention-rate').textContent = data.retention_rate + '%';
+                    document.getElementById('csat-score').textContent = data.csat_score || 'N/A';
+                    const techTable = document.getElementById('technical-performance');
+                    techTable.innerHTML = '';
+                    for (const [metric, value] of Object.entries(data.technical_performance)) {
+                        techTable.innerHTML += `<p>${metric}: ${value}</p>`;
+                    }
+
+                    chart.data.labels = data.page_views_labels;
+                    chart.data.datasets[0].data = data.page_views_data;
+                    chart.update();
+                }).catch(err => console.error('Error fetching metrics:', err));
         }
-        eventsList.innerHTML = '';
-        const sampleData = [
-            { event_type: 'page_view', timestamp: new Date(), url: window.location.href },
-            { event_type: 'page_view', timestamp: new Date(Date.now() - 5 * 60 * 1000), url: window.location.href }
-        ];
-        sampleData.forEach(event => {
-            const li = document.createElement('li');
-            li.textContent = `${event.event_type} at ${new Date(event.timestamp).toLocaleString()} - URL: ${event.url}`;
-            eventsList.appendChild(li);
-        });
-        console.log('Recent events populated with sample data');
+
+        updateDashboard();
+        setInterval(updateDashboard, 5000); // Poll every 5 seconds for real-time
     }
 
     // Event listeners for admin links
-    const adminLink = document.getElementById('admin-link');
-    const adminLinkMobile = document.getElementById('admin-link-mobile');
-    if (adminLink) {
-        adminLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            console.log('Desktop Admin Dashboard link clicked');
-            loadDashboard();
-        });
-    } else {
-        console.error('Desktop admin link not found');
-    }
-    if (adminLinkMobile) {
-        adminLinkMobile.addEventListener('click', (e) => {
-            e.preventDefault();
-            console.log('Mobile Admin Dashboard link clicked');
-            loadDashboard();
-        });
-    } else {
-        console.error('Mobile admin link not found');
-    }
+    document.getElementById('admin-link').addEventListener('click', (e) => {
+        e.preventDefault();
+        loadDashboard();
+    });
+    document.getElementById('admin-link-mobile').addEventListener('click', (e) => {
+        e.preventDefault();
+        loadDashboard();
+    });
 </script>
 </body>
 </html>
