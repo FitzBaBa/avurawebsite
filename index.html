@@ -14,6 +14,7 @@
     <meta name="twitter:title" content="Avura Cares: Affordable Telemedicine & Preventive Care in Nigeria">
     <meta name="twitter:description" content="Telemedicine, home care, and insurance for Nigerians.">
     <meta name="twitter:image" content="https://www.avuracares.com/images/heroBanner.png">
+    <link rel="icon" type="image/png" href="images/new-avura.ico" />
     <link rel="canonical" href="https://www.avuracares.com/">
     <script src="https://js.paystack.co/v1/inline.js"></script>
     <script type="application/ld+json">
@@ -359,7 +360,7 @@
             <h3 class="text-center text-xl font-bold text-blue-700 mb-2">
                 <i class="fas fa-shield-alt text-blue-700 mr-2" aria-hidden="true"></i>Avura SafeBuddy
             </h3>
-            <p class="text-center mb-3">Entry-level care for individuals (₦5,000/year)</p>
+            <p class="text-center mb-3">Entry-level care for individuals (₦83,000/year)</p>
             <ul class="list-disc text-gray-700 mb-4">
                 <li>Affordable protection</li>
                 <li>Great for students & early career pros</li>
@@ -367,7 +368,7 @@
             </ul>
             <div class="flex justify-center">
                 <button onclick="openModal('safebuddy')" class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-medium">
-                    <i class="fas fa-check mr-2" aria-hidden="true"></i>Register Now
+                    <i class="fas fa-check mr-2" aria-hidden="true"></i>Start SafeBuddy (from ₦83,000)
                 </button>
             </div>
         </div>
@@ -378,7 +379,7 @@
             <h3 class="text-center text-xl font-bold text-green-700 mb-2">
                 <i class="fas fa-shield-heart text-green-700 mr-2" aria-hidden="true"></i>Avura SafePal
             </h3>
-            <p class="text-center mb-3">More coverage for families (₦10,000/year)</p>
+            <p class="text-center mb-3">More coverage for families (₦107,000/year)</p>
             <ul class="list-disc text-gray-700 mb-4">
                 <li>Ideal for small families & teams</li>
                 <li>Includes outpatient & maternity support</li>
@@ -386,7 +387,7 @@
             </ul>
             <div class="flex justify-center">
                 <button onclick="openModal('safepal')" class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full font-medium">
-                    <i class="fas fa-check mr-2" aria-hidden="true"></i>Register Now
+                    <i class="fas fa-check mr-2" aria-hidden="true"></i>Start SafePal (from ₦107,000)
                 </button>
             </div>
         </div>
@@ -416,8 +417,13 @@
         <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full max-h-screen overflow-y-auto">
             <span onclick="closeModal()" class="float-right text-2xl cursor-pointer text-gray-700 hover:text-red-500">&times;</span>
             <h3 id="modalTitle" class="text-xl font-bold text-blue-700 mb-4">Register for Your Plan</h3>
-            <form id="registrationForm" action="https://formspree.io/f/meorleea" method="POST" class="space-y-4">
+            <form id="registrationForm" action="https://formspree.io/f/your-new-endpoint" method="POST" class="space-y-4">
                 <input type="hidden" id="planType" name="plan">
+                <input type="hidden" id="coverageLevel" name="coverage_level">
+                <input type="hidden" id="dependentsNames" name="dependents_names"> <!-- JSON for backend -->
+                <input type="hidden" id="totalAmount" name="total_amount"> <!-- For backend log -->
+
+                <!-- Existing: Full Name, Email, Phone, DOB, Gender -->
                 <div>
                     <label for="fullName" class="block text-sm font-medium text-gray-700">Full Name *</label>
                     <input type="text" id="fullName" name="full_name" required autocomplete="name" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" placeholder="Enter your full name">
@@ -432,7 +438,7 @@
                 </div>
                 <div>
                     <label for="dob" class="block text-sm font-medium text-gray-700">Date of Birth *</label>
-                    <input type="date" id="dob" name="dob" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" max="2025-10-07">
+                    <input type="date" id="dob" name="dob" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" max="2005-10-07">
                 </div>
                 <div>
                     <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
@@ -440,12 +446,33 @@
                         <option value="">Select...</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
+                        <option value="other">Prefer not to say</option>
                     </select>
                 </div>
+
+                <!-- New: Coverage Level Selection -->
                 <div>
-                    <label for="dependents" class="block text-sm font-medium text-gray-700">Number of Dependents</label>
-                    <input type="number" id="dependents" name="dependents" min="0" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" placeholder="0">
+                    <label for="coverageLevelSelect" class="block text-sm font-medium text-gray-700">Coverage Level *</label>
+                    <select id="coverageLevelSelect" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" onchange="updateCoverageLevel()">
+                        <option value="">Select level...</option>
+                        <option value="individual">Individual (0 dependents, base price)</option>
+                        <option value="couple">Couple (1 dependent, +₦72,000 SafeBuddy / +₦103,000 SafePal)</option>
+                        <option value="family">Family (up to 4 children, +₦260,000 SafeBuddy / +₦325,000 SafePal)</option>
+                    </select>
+                    <p id="priceDisplay" class="text-sm text-gray-500 mt-1"></p> <!-- Dynamic price -->
                 </div>
+
+                <!-- Enhanced Dependents Section -->
+                <div>
+                    <label for="dependents" class="block text-sm font-medium text-gray-700">Number of Dependents (Max based on level)</label>
+                    <input type="number" id="dependents" name="dependents" min="0" max="4" value="0" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" placeholder="0" onchange="toggleDependents()" disabled>
+                </div>
+                <div id="dependentsSection" class="hidden space-y-2">
+                    <label class="block text-sm font-medium text-gray-700">Dependent Names * (if >0)</label>
+                    <div id="dependentsFields"></div>
+                </div>
+
+                <!-- Rest unchanged: Street, City/State, Occupation, Emergency, Consent -->
                 <div>
                     <label for="street" class="block text-sm font-medium text-gray-700">Street Address *</label>
                     <input type="text" id="street" name="street" required autocomplete="street-address" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" placeholder="Your street address">
@@ -745,6 +772,7 @@
         document.getElementById('planType').value = plan;
         document.getElementById('modalTitle').textContent = `Register for Avura ${plan.charAt(0).toUpperCase() + plan.slice(1)}`;
         document.getElementById('registrationModal').classList.remove('hidden');
+        updateCoverageLevel(); // Reset on open
     }
 
     function closeModal() {
@@ -752,50 +780,118 @@
         document.getElementById('registrationForm').reset();
     }
 
-    // Registration Form Submission with Paystack
-    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+    function updateCoverageLevel() {
+        const plan = document.getElementById('planType').value;
+        const levelSelect = document.getElementById('coverageLevelSelect');
+        const dependentsInput = document.getElementById('dependents');
+        const priceDisplay = document.getElementById('priceDisplay');
+        const level = levelSelect.value;
+        document.getElementById('coverageLevel').value = level;
+
+        let maxDependents = 0;
+        let basePriceNaira = 0;
+        let additionalPriceNaira = 0;
+
+        if (plan === 'safebuddy') {
+            basePriceNaira = 83000; // Base price in Naira
+            additionalPriceNaira = { couple: 72000, family: 332000 }[level] || 0; // Additional in Naira
+        } else if (plan === 'safepal') {
+            basePriceNaira = 107000; // Base price in Naira
+            additionalPriceNaira = { couple: 103000, family: 428000 }[level] || 0; // Additional in Naira
+        }
+
+        if (level === 'individual') maxDependents = 0;
+        else if (level === 'couple') maxDependents = 1;
+        else if (level === 'family') maxDependents = 4;
+
+        dependentsInput.max = maxDependents;
+        dependentsInput.disabled = !maxDependents;
+        dependentsInput.value = Math.min(parseInt(dependentsInput.value) || 0, maxDependents);
+        
+        // Convert to kobo (Naira * 100)
+        const totalPriceNaira = basePriceNaira + additionalPriceNaira;
+        const totalAmountKobo = totalPriceNaira * 100;
+        priceDisplay.textContent = `Total: ₦${totalPriceNaira.toLocaleString()}`; // Display in Naira
+        document.getElementById('totalAmount').value = totalAmountKobo; // Store in kobo
+        console.log(`Debug - updateCoverageLevel: Plan=${plan}, Level=${level}, BaseNaira=${basePriceNaira}, AddNaira=${additionalPriceNaira}, TotalKobo=${totalAmountKobo}`);
+    }
+
+    // Dependents Toggle Function
+    function toggleDependents() {
+        const num = parseInt(document.getElementById('dependents').value) || 0;
+        const max = parseInt(document.getElementById('dependents').max) || 0;
+        const section = document.getElementById('dependentsSection');
+        const fieldsContainer = document.getElementById('dependentsFields');
+        const hiddenInput = document.getElementById('dependentsNames');
+
+        if (num > 0 && num <= max) {
+            section.classList.remove('hidden');
+            fieldsContainer.innerHTML = '';
+            for (let i = 1; i <= num; i++) {
+                const div = document.createElement('div');
+                div.innerHTML = `
+                    <label class="block text-xs text-gray-600">Dependent ${i} Name *</label>
+                    <input type="text" name="dep${i}" required class="w-full p-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-amber-400" placeholder="Name of dependent ${i}" onchange="updateDependentsHidden()">
+                `;
+                fieldsContainer.appendChild(div);
+            }
+            updateDependentsHidden();
+        } else {
+            section.classList.add('hidden');
+            fieldsContainer.innerHTML = '';
+            hiddenInput.value = '{}';
+        }
+    }
+
+    function updateDependentsHidden() {
+        const num = parseInt(document.getElementById('dependents').value) || 0;
+        let namesObj = {};
+        for (let i = 1; i <= num; i++) {
+            const input = document.querySelector(`input[name="dep${i}"]`);
+            if (input && input.value.trim()) {
+                namesObj[`dep${i}`] = input.value.trim();
+            }
+        }
+        document.getElementById('dependentsNames').value = JSON.stringify(namesObj);
+    }
+
+    // Updated Form Submission (with post-payment save)
+   document.getElementById('registrationForm').addEventListener('submit', function(e) {
         e.preventDefault();
         const formData = new FormData(this);
-        const amount = selectedPlan === 'safebuddy' ? 50000 : 100000; // In kobo (₦5,000 or ₦10,000)
+        const amount = parseInt(document.getElementById('totalAmount').value) || (selectedPlan === 'safebuddy' ? 83000 * 100 : 107000 * 100);
+        console.log(`Debug - Form Submit: totalAmount=${document.getElementById('totalAmount').value}, Final Amount=${amount}`); // Debug log
 
-        fetch(this.action, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-        }).then(response => response.json())
-          .then(data => {
-              if (data.ok) {
-                  document.getElementById('thankYou').classList.remove('hidden');
-                  // Initialize Paystack
-                  const handler = PaystackPop.setup({
-                      key: 'pk_test_760a7658cf06e3b99517643bd4daf6d3ac5b7315', // Replace with live key for prod
-                      email: formData.get('email'),
-                      amount: amount,
-                      currency: 'NGN',
-                      ref: 'avura_' + Math.floor((Math.random() * 1000000000) + 1),
-                      callback: function(response) {
-                          // Success: Verify payment
-                          fetch('/verify-payment', { // Your backend endpoint
-                              method: 'POST',
-                              headers: { 'Content-Type': 'application/json' },
-                              body: JSON.stringify({ reference: response.reference, plan: selectedPlan })
-                          }).then(() => {
-                              alert('Payment successful! Welcome to Avura Cares.');
-                              closeModal();
-                              // Redirect to dashboard
-                          });
-                      },
-                      onClose: function() {
-                          alert('Payment cancelled. You can retry.');
-                      }
-                  });
-                  handler.openIframe();
-              } else {
-                  alert('Submission error. Try again.');
-              }
-          }).catch(error => {
-              alert('Network error. Please try again.');
-          });
+        document.getElementById('thankYou').classList.remove('hidden');
+        const handler = PaystackPop.setup({
+            key: 'pk_test_760a7658cf06e3b99517643bd4daf6d3ac5b7315', // Your test key; swap to live
+            email: formData.get('email'),
+            name: formData.get('full_name'),
+            amount: amount,
+            currency: 'NGN',
+            ref: 'avura_' + Math.floor((Math.random() * 1000000000) + 1),
+            callback: function(response) {
+                const fullData = Object.fromEntries(formData.entries());
+                fullData.payment_status = 'Paid';
+                fullData.payment_reference = response.reference;
+                fullData.payment_date = new Date().toISOString();
+
+                fetch('https://script.google.com/macros/s/YOUR_GAS_WEB_APP_ID/exec', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(fullData)
+                }).then(() => {
+                    alert('Payment successful! Data saved to your client database.');
+                    closeModal();
+                }).catch(err => {
+                    alert('Payment OK, but save failed—contact support.');
+                });
+            },
+            onClose: function() {
+                alert('Payment cancelled. Data not saved.');
+            }
+        });
+        handler.openIframe();
     });
 
     // Contact Form Submission
@@ -833,21 +929,20 @@
         });
     }
 
-    // Affiliate Popup (Uncomment for live)
-    /*
-    let popupCount = 0;
-    const maxPopups = 2;
-    setTimeout(() => {
-        if (popupCount < maxPopups) {
-            document.getElementById('affiliate-popup').classList.remove('hidden');
-            popupCount++;
-        }
-    }, 2000);
+    // Affiliate Popup
 
-    document.getElementById('close-popup').addEventListener('click', () => {
-        document.getElementById('affiliate-popup').classList.add('hidden');
-    });
-    */
+    //let popupCount = 0;
+    //const maxPopups = 2;
+    //setTimeout(() => {
+        //if (popupCount < maxPopups) {
+            //document.getElementById('affiliate-popup').classList.remove('hidden');
+            //popupCount++;
+        //}
+    //}, 2000);
+
+    //document.getElementById('close-popup').addEventListener('click', () => {
+       // document.getElementById('affiliate-popup').classList.add('hidden');
+    //});
 </script>
 </body>
 </html>
