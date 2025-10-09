@@ -14,7 +14,7 @@
     <meta name="twitter:title" content="Avura Cares: Affordable Telemedicine & Preventive Care in Nigeria">
     <meta name="twitter:description" content="Telemedicine, home care, and insurance for Nigerians.">
     <meta name="twitter:image" content="https://www.avuracares.com/images/heroBanner.png">
-    <link rel="icon" type="image/png" href="images/new-avura.ico" />
+    <link rel="icon" type="image/x-icon" href="images/new-avura.ico" />
     <link rel="canonical" href="https://www.avuracares.com/">
     <script src="https://js.paystack.co/v1/inline.js"></script>
     <script type="application/ld+json">
@@ -76,7 +76,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.amplitude.com/script/b6eabbe674ab977ee291151f4b4d5cdc.js"></script>
     <script>window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));window.amplitude.init('b6eabbe674ab977ee291151f4b4d5cdc', {"fetchRemoteConfig":true,"autocapture":{"attribution":true,"fileDownloads":true,"formInteractions":true,"pageViews":true,"sessions":true,"elementInteractions":true,"networkTracking":true,"webVitals":true,"frustrationInteractions":true}});</script>
     <!-- Google tag (gtag.js) -->
@@ -417,13 +416,11 @@
         <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full max-h-screen overflow-y-auto">
             <span onclick="closeModal()" class="float-right text-2xl cursor-pointer text-gray-700 hover:text-red-500">&times;</span>
             <h3 id="modalTitle" class="text-xl font-bold text-blue-700 mb-4">Register for Your Plan</h3>
-            <form id="registrationForm" action="https://formspree.io/f/meorleea" method="POST" class="space-y-4">
+            <form id="registrationForm" data-netlify="true" name="avura-registration" method="POST" class="space-y-4">
                 <input type="hidden" id="planType" name="plan">
                 <input type="hidden" id="coverageLevel" name="coverage_level">
-                <input type="hidden" id="dependentsNames" name="dependents_names"> <!-- JSON for backend -->
-                <input type="hidden" id="totalAmount" name="total_amount"> <!-- For backend log -->
-
-                <!-- Existing: Full Name, Email, Phone, DOB, Gender -->
+                <input type="hidden" id="dependentsNames" name="dependents_names">
+                <input type="hidden" id="totalAmount" name="total_amount">
                 <div>
                     <label for="fullName" class="block text-sm font-medium text-gray-700">Full Name *</label>
                     <input type="text" id="fullName" name="full_name" required autocomplete="name" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" placeholder="Enter your full name">
@@ -438,7 +435,7 @@
                 </div>
                 <div>
                     <label for="dob" class="block text-sm font-medium text-gray-700">Date of Birth *</label>
-                    <input type="date" id="dob" name="dob" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" max="2005-10-07">
+                    <input type="date" id="dob" name="dob" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" max="2005-10-09">
                 </div>
                 <div>
                     <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
@@ -449,16 +446,13 @@
                         <option value="other">Prefer not to say</option>
                     </select>
                 </div>
-
                 <div>
                     <label for="coverageLevelSelect" class="block text-sm font-medium text-gray-700">Coverage Level *</label>
                     <select id="coverageLevelSelect" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" onchange="updateCoverageLevel()">
                         <option value="">Select level...</option>
                     </select>
-                    <p id="priceDisplay" class="text-sm text-gray-500 mt-1"></p> <!-- Dynamic price -->
+                    <p id="priceDisplay" class="text-sm text-gray-500 mt-1"></p>
                 </div>
-
-                <!-- Enhanced Dependents Section -->
                 <div>
                     <label for="dependents" class="block text-sm font-medium text-gray-700">Number of Dependents (Max based on level)</label>
                     <input type="number" id="dependents" name="dependents" min="0" max="4" value="0" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" placeholder="0" onchange="toggleDependents()" disabled>
@@ -467,8 +461,6 @@
                     <label class="block text-sm font-medium text-gray-700">Dependent Names * (if >0)</label>
                     <div id="dependentsFields"></div>
                 </div>
-
-                <!-- Rest unchanged: Street, City/State, Occupation, Emergency, Consent -->
                 <div>
                     <label for="street" class="block text-sm font-medium text-gray-700">Street Address *</label>
                     <input type="text" id="street" name="street" required autocomplete="street-address" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" placeholder="Your street address">
@@ -573,7 +565,7 @@
 <footer id="contact" class="bg-blue-900 text-white py-8 px-4 sm:px-6">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
         <div>
-            <a id="admin-link" href="#admin-dashboard" class="hover:text-amber-400 text-xl font-bold text-amber-400 mb-2">Avura</a>
+            <a href="#" class="hover:text-amber-400 text-xl font-bold text-amber-400 mb-2">Avura</a>
             <p class="text-sm text-gray-300">
                 Personalized healthcare plans that work for you — anytime, anywhere.
             </p>
@@ -626,107 +618,8 @@
     </div>
 </footer>
 
-<section>
-    <!-- Pop-Up Banner -->
-    <div id="affiliate-popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white p-6 rounded-lg max-w-md w-full mx-4 shadow-lg relative">
-            <span id="close-popup" class="absolute top-2 right-4 text-2xl cursor-pointer text-gray-700 hover:text-red-500">&times;</span>
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Become an Avura Cares Affiliate!</h2>
-            <p class="text-gray-600 mb-2">Earn 10% commission on every insurance package!</p>
-            <p class="text-gray-600 mb-2">Join our program, share your link, and get paid for every successful referral</p>
-            <a href="https://wa.me/2348076100248?text=Hello%20I%20want%20to%20be%20an%20Affiliate%20with%20Avura%20Cares,%20My%20email%20is:%20" class="inline-block bg-blue-800 text-white py-2 px-4 rounded-md font-semibold hover:bg-green-700">Become an Affiliate</a>
-        </div>
-    </div>
-</section>
-
-<!-- Admin Dashboard 
-<section id="admin-dashboard" class="hidden px-4 py-12 bg-gray-100">
-    <h2 class="text-2xl font-bold mb-4 text-blue-800">Admin Analytics Dashboard</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white p-4 rounded shadow">
-            <h3 class="text-lg font-semibold mb-2">Unique Visitors</h3>
-            <p id="unique-visitors" class="text-2xl font-bold">0</p>
-            <p class="text-sm text-gray-600">Are you growing or recycling the same user base?</p>
-        </div>
-        <div class="bg-white p-4 rounded shadow">
-            <h3 class="text-lg font-semibold mb-2">Page Views</h3>
-            <p id="page-views" class="text-2xl font-bold">0</p>
-            <p class="text-sm text-gray-600">Are users exploring or exiting after a quick glance?</p>
-        </div>
-        <div class="bg-white p-4 rounded shadow">
-            <h3 class="text-lg font-semibold mb-2">Sessions</h3>
-            <p id="sessions" class="text-2xl font-bold">0</p>
-            <p class="text-sm text-gray-600">Total user sessions.</p>
-        </div>
-        <div class="bg-white p-4 rounded shadow">
-            <h3 class="text-lg font-semibold mb-2">Traffic Sources</h3>
-            <div id="traffic-sources" class="text-sm"></div>
-            <p class="text-sm text-gray-600">Which channels bring qualified, high-intent users?</p>
-        </div>
-        <div class="bg-white p-4 rounded shadow">
-            <h3 class="text-lg font-semibold mb-2">Bounce Rate</h3>
-            <p id="bounce-rate" class="text-2xl font-bold">0%</p>
-            <p class="text-sm text-gray-600">Are visitors finding value or leaving immediately?</p>
-        </div>
-        <div class="bg-white p-4 rounded shadow">
-            <h3 class="text-lg font-semibold mb-2">Average Session Duration</h3>
-            <p id="avg-session-duration" class="text-2xl font-bold">0s</p>
-            <p class="text-sm text-gray-600">Are users meaningfully engaging or confused and circling?</p>
-        </div>
-        <div class="bg-white p-4 rounded shadow">
-            <h3 class="text-lg font-semibold mb-2">Pages per Session</h3>
-            <p id="pages-per-session" class="text-2xl font-bold">0</p>
-            <p class="text-sm text-gray-600">Is your site built for discovery or leading to dead ends?</p>
-        </div>
-        <div class="bg-white p-4 rounded shadow">
-            <h3 class="text-lg font-semibold mb-2">Interaction Events</h3>
-            <p id="interaction-events" class="text-2xl font-bold">0</p>
-            <p class="text-sm text-gray-600">Are users actively engaging or passively browsing?</p>
-        </div>
-        <div class="bg-white p-4 rounded shadow">
-            <h3 class="text-lg font-semibold mb-2">Conversion Rate</h3>
-            <p id="conversion-rate" class="text-2xl font-bold">0%</p>
-            <p class="text-sm text-gray-600">Are users completing key actions that matter to the business?</p>
-        </div>
-        <div class="bg-white p-4 rounded shadow">
-            <h3 class="text-lg font-semibold mb-2">Funnel Drop-Off Rates</h3>
-            <div id="funnel-drop-off" class="text-sm"></div>
-            <p class="text-sm text-gray-600">Where in the journey are users abandoning your flow?</p>
-        </div>
-        <div class="bg-white p-4 rounded shadow">
-            <h3 class="text-lg font-semibold mb-2">Form Abandonment Rate</h3>
-            <p id="form-abandonment" class="text-2xl font-bold">0%</p>
-            <p class="text-sm text-gray-600">Are your forms driving signups or silently killing them?</p>
-        </div>
-        <div class="bg-white p-4 rounded shadow">
-            <h3 class="text-lg font-semibold mb-2">CTA Click-Through Rate (CTR)</h3>
-            <p id="cta-ctr" class="text-2xl font-bold">0%</p>
-            <p class="text-sm text-gray-600">Is your messaging and layout motivating next-step action?</p>
-        </div>
-        <div class="bg-white p-4 rounded shadow">
-            <h3 class="text-lg font-semibold mb-2">Retention Rate</h3>
-            <p id="retention-rate" class="text-2xl font-bold">0%</p>
-            <p class="text-sm text-gray-600">Are users returning because they see lasting value?</p>
-        </div>
-        <div class="bg-white p-4 rounded shadow">
-            <h3 class="text-lg font-semibold mb-2">Customer Satisfaction Score</h3>
-            <p id="csat-score" class="text-2xl font-bold">N/A</p>
-            <p class="text-sm text-gray-600">How do users feel about your product experience?</p>
-        </div>
-        <div class="bg-white p-4 rounded shadow">
-            <h3 class="text-lg font-semibold mb-2">Technical Performance</h3>
-            <div id="technical-performance" class="text-sm"></div>
-            <p class="text-sm text-gray-600">Is the website fast, stable, and technically reliable?</p>
-        </div>
-    </div>
-    <div class="mt-8 bg-white p-6 rounded shadow">
-        <canvas id="page-views-chart" class="w-full h-64"></canvas>
-    </div>
-</section>
--->
-
-
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
     // AOS Initialization
@@ -763,211 +656,233 @@
         modal.classList.toggle('hidden');
     }
 
-    // Registration Modal Functions
-    let selectedPlan = '';
-    function openModal(plan) {
-        selectedPlan = plan;
-        document.getElementById('planType').value = plan;
-        document.getElementById('modalTitle').textContent = `Register for Avura ${plan.charAt(0).toUpperCase() + plan.slice(1)}`;
-        document.getElementById('registrationModal').classList.remove('hidden');
+    // Registration Modal
+const PRICING = {
+    safebuddy: {
+        base: 83000,
+        additional: { individual: 0, couple: 72000, family: 332000 },
+        maxDependents: { individual: 0, couple: 1, family: 4 },
+        dropdownOptions: [
+            { value: 'individual', text: 'Individual (0 dependents, ₦83,000)' },
+            { value: 'couple', text: 'Couple (1 dependent, ₦155,000)' },
+            { value: 'family', text: 'Family (up to 4 children, ₦415,000)' }
+        ]
+    },
+    safepal: {
+        base: 107000,
+        additional: { individual: 0, couple: 103000, family: 428000 },
+        maxDependents: { individual: 0, couple: 1, family: 4 },
+        dropdownOptions: [
+            { value: 'individual', text: 'Individual (0 dependents, ₦107,000)' },
+            { value: 'couple', text: 'Couple (1 dependent, ₦210,000)' },
+            { value: 'family', text: 'Family (up to 4 children, ₦535,000)' }
+        ]
+    }
+};
 
-        // Populate dropdown based on plan
-        const levelSelect = document.getElementById('coverageLevelSelect');
-        levelSelect.innerHTML = '<option value="">Select level...</option>';
-        const options = {
-            safebuddy: [
-                { value: 'individual', text: 'Individual (0 dependents, ₦83,000)' },
-                { value: 'couple', text: 'Couple (1 dependent, ₦155,000)' },
-                { value: 'family', text: 'Family (up to 4 children, ₦415,000)' }
-            ],
-            safepal: [
-                { value: 'individual', text: 'Individual (0 dependents, ₦107,000)' },
-                { value: 'couple', text: 'Couple (1 dependent, ₦210,000)' },
-                { value: 'family', text: 'Family (up to 4 children, ₦535,000)' }
-            ]
-        };
-        options[plan].forEach(opt => {
-            const option = document.createElement('option');
-            option.value = opt.value;
-            option.text = opt.text;
-            levelSelect.appendChild(option);
-        });
+const VALID_PLANS = ['safebuddy', 'safepal'];
+const VALID_LEVELS = ['individual', 'couple', 'family'];
+let selectedPlan = '';
 
-        updateCoverageLevel(); // Reset price display
+function openModal(plan) {
+    if (!VALID_PLANS.includes(plan)) {
+        console.error('Invalid plan:', plan);
+        alert('Invalid plan selected. Please try again.');
+        return;
     }
 
-    function closeModal() {
-        document.getElementById('registrationModal').classList.add('hidden');
-        document.getElementById('registrationForm').reset();
-    }
+    selectedPlan = plan;
+    const modal = document.getElementById('registrationModal');
+    const planTypeInput = document.getElementById('planType');
+    const modalTitle = document.getElementById('modalTitle');
+    const levelSelect = document.getElementById('coverageLevelSelect');
 
-    function updateCoverageLevel() {
-        const plan = document.getElementById('planType').value;
-        const levelSelect = document.getElementById('coverageLevelSelect');
-        const dependentsInput = document.getElementById('dependents');
-        const priceDisplay = document.getElementById('priceDisplay');
-        const level = levelSelect.value;
-        document.getElementById('coverageLevel').value = level;
+    planTypeInput.value = plan;
+    modalTitle.textContent = `Register for Avura ${plan.charAt(0).toUpperCase() + plan.slice(1)}`;
+    modal.classList.remove('hidden');
+    modal.setAttribute('aria-hidden', 'false');
 
-        let maxDependents = 0;
-        let basePriceNaira = 0;
-        let additionalPriceNaira = 0;
-
-        if (plan === 'safebuddy') {
-            basePriceNaira = 83000; // Base price in Naira
-            additionalPriceNaira = { couple: 72000, family: 332000 }[level] || 0; // Additional in Naira
-        } else if (plan === 'safepal') {
-            basePriceNaira = 107000; // Base price in Naira
-            additionalPriceNaira = { couple: 103000, family: 428000 }[level] || 0; // Additional in Naira
-        }
-
-        if (level === 'individual') maxDependents = 0;
-        else if (level === 'couple') maxDependents = 1;
-        else if (level === 'family') maxDependents = 4;
-
-        dependentsInput.max = maxDependents;
-        dependentsInput.disabled = !maxDependents;
-        dependentsInput.value = Math.min(parseInt(dependentsInput.value) || 0, maxDependents);
-        
-        // Convert to kobo (Naira * 100)
-        const totalPriceNaira = basePriceNaira + additionalPriceNaira;
-        const totalAmountKobo = totalPriceNaira * 100;
-        priceDisplay.textContent = `Total: ₦${totalPriceNaira.toLocaleString()}`; // Display in Naira
-        document.getElementById('totalAmount').value = totalAmountKobo; // Store in kobo
-        console.log(`Debug - updateCoverageLevel: Plan=${plan}, Level=${level}, BaseNaira=${basePriceNaira}, AddNaira=${additionalPriceNaira}, TotalKobo=${totalAmountKobo}`);
-    }
-
-    // Dependents Toggle Function
-    function toggleDependents() {
-        const num = parseInt(document.getElementById('dependents').value) || 0;
-        const max = parseInt(document.getElementById('dependents').max) || 0;
-        const section = document.getElementById('dependentsSection');
-        const fieldsContainer = document.getElementById('dependentsFields');
-        const hiddenInput = document.getElementById('dependentsNames');
-
-        if (num > 0 && num <= max) {
-            section.classList.remove('hidden');
-            fieldsContainer.innerHTML = '';
-            for (let i = 1; i <= num; i++) {
-                const div = document.createElement('div');
-                div.innerHTML = `
-                    <label class="block text-xs text-gray-600">Dependent ${i} Name *</label>
-                    <input type="text" name="dep${i}" required class="w-full p-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-amber-400" placeholder="Name of dependent ${i}" onchange="updateDependentsHidden()">
-                `;
-                fieldsContainer.appendChild(div);
-            }
-            updateDependentsHidden();
-        } else {
-            section.classList.add('hidden');
-            fieldsContainer.innerHTML = '';
-            hiddenInput.value = '{}';
-        }
-    }
-
-    function updateDependentsHidden() {
-        const num = parseInt(document.getElementById('dependents').value) || 0;
-        let namesObj = {};
-        for (let i = 1; i <= num; i++) {
-            const input = document.querySelector(`input[name="dep${i}"]`);
-            if (input && input.value.trim()) {
-                namesObj[`dep${i}`] = input.value.trim();
-            }
-        }
-        document.getElementById('dependentsNames').value = JSON.stringify(namesObj);
-    }
-
-    // Updated Form Submission (with post-payment save)
-   document.getElementById('registrationForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formData = new FormData(this);
-        const amount = parseInt(document.getElementById('totalAmount').value) || (selectedPlan === 'safebuddy' ? 83000 * 100 : 107000 * 100);
-        console.log(`Debug - Form Submit: totalAmount=${document.getElementById('totalAmount').value}, Final Amount=${amount}`); // Debug log
-
-        document.getElementById('thankYou').classList.remove('hidden');
-        const handler = PaystackPop.setup({
-            key: 'pk_test_760a7658cf06e3b99517643bd4daf6d3ac5b7315', // Your test key; swap to live
-            email: formData.get('email'),
-            amount: amount,
-            currency: 'NGN',
-            ref: 'avura_' + Math.floor((Math.random() * 1000000000) + 1),
-            callback: function(response) {
-                const fullData = Object.fromEntries(formData.entries());
-                fullData.payment_status = 'Paid';
-                fullData.payment_reference = response.reference;
-                fullData.payment_date = new Date().toISOString();
-
-                fetch('https://script.google.com/macros/s/AKfycbz78uuUAEYYcpNhfRMZW0V4FZWTWFW-UfQf_jzSCSkVvYQWNjN1Eo2Ik9eyzvEYu9ulFQ/exec', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(fullData)
-                }).then(response => {
-                    console.log('GAS Response:', response.text());
-                    return response.text(); // Read response as text
-                }).then(data => {
-                    console.log('GAS Data:', data);
-                    alert('Payment successful! Data saved.');
-                    closeModal();
-                }).catch(err => {
-                    console.error('GAS Error:', err);
-                    alert('Payment OK, but save failed.');
-                });
-            },
-            onClose: function() {
-                alert('Payment cancelled. Data not saved.');
-            }
-        });
-        handler.openIframe();
+    levelSelect.innerHTML = '<option value="">Select level...</option>';
+    PRICING[plan].dropdownOptions.forEach(opt => {
+        const option = document.createElement('option');
+        option.value = opt.value;
+        option.text = opt.text;
+        levelSelect.appendChild(option);
     });
 
-    // Contact Form Submission
-    const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const form = this;
-        fetch(form.action, {
+    updateCoverageLevel();
+}
+
+function closeModal() {
+    const modal = document.getElementById('registrationModal');
+    modal.classList.add('hidden');
+    modal.setAttribute('aria-hidden', 'true');
+    document.getElementById('registrationForm').reset();
+    document.getElementById('dependentsSection').classList.add('hidden');
+    document.getElementById('dependentsFields').innerHTML = '';
+    document.getElementById('dependentsNames').value = '{}';
+    document.getElementById('priceDisplay').textContent = '';
+}
+
+function updateCoverageLevel() {
+    const plan = document.getElementById('planType').value;
+    const levelSelect = document.getElementById('coverageLevelSelect');
+    const dependentsInput = document.getElementById('dependents');
+    const priceDisplay = document.getElementById('priceDisplay');
+    const level = levelSelect.value;
+
+    if (!VALID_PLANS.includes(plan) || !VALID_LEVELS.includes(level)) {
+        priceDisplay.textContent = 'Please select a valid plan and coverage level';
+        document.getElementById('totalAmount').value = '';
+        return;
+    }
+
+    document.getElementById('coverageLevel').value = level;
+    const basePriceNaira = PRICING[plan].base;
+    const additionalPriceNaira = PRICING[plan].additional[level] || 0;
+    const maxDependents = PRICING[plan].maxDependents[level];
+
+    dependentsInput.max = maxDependents;
+    dependentsInput.disabled = maxDependents === 0;
+    dependentsInput.value = Math.min(parseInt(dependentsInput.value) || 0, maxDependents);
+
+    const totalPriceNaira = basePriceNaira + additionalPriceNaira;
+    const totalAmountKobo = totalPriceNaira * 100;
+    priceDisplay.textContent = `Total: ₦${totalPriceNaira.toLocaleString('en-NG')}`;
+    document.getElementById('totalAmount').value = totalAmountKobo;
+
+    toggleDependents();
+}
+
+function toggleDependents() {
+    const num = parseInt(document.getElementById('dependents').value) || 0;
+    const max = parseInt(document.getElementById('dependents').max) || 0;
+    const section = document.getElementById('dependentsSection');
+    const fieldsContainer = document.getElementById('dependentsFields');
+    const hiddenInput = document.getElementById('dependentsNames');
+
+    if (num > 0 && num <= max) {
+        section.classList.remove('hidden');
+        fieldsContainer.innerHTML = '';
+        for (let i = 1; i <= num; i++) {
+            const div = document.createElement('div');
+            div.innerHTML = `
+                <label for="dep${i}" class="block text-xs text-gray-600">Dependent ${i} Name *</label>
+                <input type="text" id="dep${i}" name="dep${i}" required class="w-full p-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-amber-400" placeholder="Name of dependent ${i}" oninput="updateDependentsHidden()">
+            `;
+            fieldsContainer.appendChild(div);
+            const input = document.getElementById(`dep${i}`);
+            input.addEventListener('input', () => {
+                input.value = input.value.replace(/[^a-zA-Z\s]/g, '');
+                updateDependentsHidden();
+            });
+        }
+    } else {
+        section.classList.add('hidden');
+        fieldsContainer.innerHTML = '';
+        hiddenInput.value = '{}';
+    }
+}
+
+function updateDependentsHidden() {
+    const num = parseInt(document.getElementById('dependents').value) || 0;
+    const namesObj = {};
+    for (let i = 1; i <= num; i++) {
+        const input = document.getElementById(`dep${i}`);
+        if (input && input.value.trim()) {
+            namesObj[`dep${i}`] = input.value.trim();
+        }
+    }
+    document.getElementById('dependentsNames').value = JSON.stringify(namesObj);
+}
+
+document.getElementById('registrationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    updateDependentsHidden();
+    updateCoverageLevel();
+
+    const formData = new FormData(this);
+    const email = formData.get('email');
+    const amount = parseInt(document.getElementById('totalAmount').value);
+
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+    if (!amount || isNaN(amount)) {
+        alert('Invalid payment amount. Please select a valid plan and coverage level.');
+        return;
+    }
+
+    const metadata = { plan: selectedPlan, total_amount_naira: (amount / 100).toFixed(2) };
+    for (let [key, value] of formData.entries()) {
+        metadata[key] = value;
+    }
+
+    document.getElementById('thankYou').classList.remove('hidden');
+    const handler = PaystackPop.setup({
+        key: process.env.PAYSTACK_PUBLIC_KEY,
+        email,
+        amount,
+        currency: 'NGN',
+        ref: 'avura_' + Math.floor((Math.random() * 1000000000) + 1),
+        metadata,
+        callback: async function(response) {
+            try {
+                const verifyResponse = await fetch(`https://api.paystack.co/transaction/verify/${response.reference}`, {
+                    headers: { Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}` }
+                });
+                const verifyData = await verifyResponse.json();
+                if (verifyData.status && verifyData.data.status === 'success') {
+                    console.log('Payment verified:', response.reference);
+                    alert(`Payment successful! Reference: ${response.reference}`);
+                    closeModal();
+                } else {
+                    alert('Payment verification failed. Please contact support.');
+                }
+            } catch (error) {
+                console.error('Verification error:', error);
+                alert('An error occurred during payment verification. Please try again.');
+            }
+            document.getElementById('thankYou').classList.add('hidden');
+        },
+        onClose: function() {
+            alert('Payment cancelled. No data saved.');
+            document.getElementById('thankYou').classList.add('hidden');
+        }
+    });
+    handler.openIframe();
+});
+
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = this;
+    const email = form.querySelector('input[type="email"]').value;
+
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+
+    try {
+        const response = await fetch(form.action, {
             method: 'POST',
             body: new FormData(form),
             headers: { 'Accept': 'application/json' }
-        }).then(response => {
-            if (response.ok) {
-                document.getElementById('thank-you').classList.remove('hidden');
-                form.reset();
-                setTimeout(() => document.getElementById('thank-you').classList.add('hidden'), 5000);
-            } else {
-                alert('There was an issue submitting your feedback. Please try again.');
-            }
-        }).catch(error => {
-            alert('An error occurred. Please try again later.');
         });
-    });
-
-    // Admin Chart Initialization (Sample Data)
-    const ctx = document.getElementById('page-views-chart');
-    if (ctx) {
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-                datasets: [{ label: 'Page Views', data: [0, 10, 20, 15, 30], borderColor: 'rgb(34,197,94)', tension: 0.1 }]
-            },
-            options: { responsive: true, scales: { y: { beginAtZero: true } } }
-        });
+        if (response.ok) {
+            document.getElementById('thank-you').classList.remove('hidden');
+            form.reset();
+            setTimeout(() => document.getElementById('thank-you').classList.add('hidden'), 5000);
+        } else {
+            alert(`Error ${response.status}: ${response.statusText}. Please try again.`);
+        }
+    } catch (error) {
+        console.error('Contact form error:', error);
+        alert('An error occurred while submitting the form. Please try again later.');
     }
-
-    // Affiliate Popup
-
-    //let popupCount = 0;
-    //const maxPopups = 2;
-    //setTimeout(() => {
-        //if (popupCount < maxPopups) {
-            //document.getElementById('affiliate-popup').classList.remove('hidden');
-            //popupCount++;
-        //}
-    //}, 2000);
-
-    //document.getElementById('close-popup').addEventListener('click', () => {
-       // document.getElementById('affiliate-popup').classList.add('hidden');
-    //});
+});
+   
 </script>
 </body>
 </html>
