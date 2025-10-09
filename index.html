@@ -450,14 +450,10 @@
                     </select>
                 </div>
 
-                <!-- New: Coverage Level Selection -->
                 <div>
                     <label for="coverageLevelSelect" class="block text-sm font-medium text-gray-700">Coverage Level *</label>
                     <select id="coverageLevelSelect" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" onchange="updateCoverageLevel()">
                         <option value="">Select level...</option>
-                        <option value="individual">Individual (0 dependents, base price)</option>
-                        <option value="couple">Couple (1 dependent, +₦72,000 SafeBuddy / +₦103,000 SafePal)</option>
-                        <option value="family">Family (up to 4 children, +₦260,000 SafeBuddy / +₦325,000 SafePal)</option>
                     </select>
                     <p id="priceDisplay" class="text-sm text-gray-500 mt-1"></p> <!-- Dynamic price -->
                 </div>
@@ -594,7 +590,7 @@
         </div>
         <div>
             <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
-            <form id="contact-form" action="https://formspree.io/f/mvgqbokl" method="POST" class="space-y-1 text-sm">
+            <form id="contact-form" action="https://formspree.io/f/meorleea" method="POST" class="space-y-1 text-sm">
                 <div>
                     <label for="email" class="block text-gray-300">Email</label>
                     <input type="email" id="email" name="email" required class="text-black w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" placeholder="Enter your email">
@@ -643,7 +639,7 @@
     </div>
 </section>
 
-<!-- Admin Dashboard -->
+<!-- Admin Dashboard 
 <section id="admin-dashboard" class="hidden px-4 py-12 bg-gray-100">
     <h2 class="text-2xl font-bold mb-4 text-blue-800">Admin Analytics Dashboard</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -727,6 +723,8 @@
         <canvas id="page-views-chart" class="w-full h-64"></canvas>
     </div>
 </section>
+-->
+
 
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
@@ -772,7 +770,30 @@
         document.getElementById('planType').value = plan;
         document.getElementById('modalTitle').textContent = `Register for Avura ${plan.charAt(0).toUpperCase() + plan.slice(1)}`;
         document.getElementById('registrationModal').classList.remove('hidden');
-        updateCoverageLevel(); // Reset on open
+
+        // Populate dropdown based on plan
+        const levelSelect = document.getElementById('coverageLevelSelect');
+        levelSelect.innerHTML = '<option value="">Select level...</option>';
+        const options = {
+            safebuddy: [
+                { value: 'individual', text: 'Individual (0 dependents, ₦83,000)' },
+                { value: 'couple', text: 'Couple (1 dependent, ₦155,000)' },
+                { value: 'family', text: 'Family (up to 4 children, ₦415,000)' }
+            ],
+            safepal: [
+                { value: 'individual', text: 'Individual (0 dependents, ₦107,000)' },
+                { value: 'couple', text: 'Couple (1 dependent, ₦210,000)' },
+                { value: 'family', text: 'Family (up to 4 children, ₦535,000)' }
+            ]
+        };
+        options[plan].forEach(opt => {
+            const option = document.createElement('option');
+            option.value = opt.value;
+            option.text = opt.text;
+            levelSelect.appendChild(option);
+        });
+
+        updateCoverageLevel(); // Reset price display
     }
 
     function closeModal() {
@@ -866,7 +887,6 @@
         const handler = PaystackPop.setup({
             key: 'pk_test_760a7658cf06e3b99517643bd4daf6d3ac5b7315', // Your test key; swap to live
             email: formData.get('email'),
-            name: formData.get('full_name'),
             amount: amount,
             currency: 'NGN',
             ref: 'avura_' + Math.floor((Math.random() * 1000000000) + 1),
@@ -876,15 +896,20 @@
                 fullData.payment_reference = response.reference;
                 fullData.payment_date = new Date().toISOString();
 
-                fetch('https://script.google.com/macros/s/YOUR_GAS_WEB_APP_ID/exec', {
+                fetch('https://script.google.com/macros/s/AKfycbz78uuUAEYYcpNhfRMZW0V4FZWTWFW-UfQf_jzSCSkVvYQWNjN1Eo2Ik9eyzvEYu9ulFQ/exec', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(fullData)
-                }).then(() => {
-                    alert('Payment successful! Data saved to your client database.');
+                }).then(response => {
+                    console.log('GAS Response:', response.text());
+                    return response.text(); // Read response as text
+                }).then(data => {
+                    console.log('GAS Data:', data);
+                    alert('Payment successful! Data saved.');
                     closeModal();
                 }).catch(err => {
-                    alert('Payment OK, but save failed—contact support.');
+                    console.error('GAS Error:', err);
+                    alert('Payment OK, but save failed.');
                 });
             },
             onClose: function() {
